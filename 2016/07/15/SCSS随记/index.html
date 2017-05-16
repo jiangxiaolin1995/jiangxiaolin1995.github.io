@@ -1,0 +1,918 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Sass," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="passby" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="Sass日记学习scss做的笔记，比较详细，作为查询手册吧">
+<meta name="keywords" content="Sass">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Sass日记">
+<meta property="og:url" content="http://yoursite.com/2016/07/15/SCSS随记/index.html">
+<meta property="og:site_name" content="passby">
+<meta property="og:description" content="Sass日记学习scss做的笔记，比较详细，作为查询手册吧">
+<meta property="og:image" content="http://i1.piimg.com/594295/80746f3074b4526c.png">
+<meta property="og:image" content="http://i1.piimg.com/594295/e3c3761a380bbe21.png">
+<meta property="og:image" content="http://i1.piimg.com/594295/c1678a693c6f3e53.png">
+<meta property="og:image" content="http://i1.piimg.com/594295/6e4f055c1686d3f2.png">
+<meta property="og:image" content="http://i1.piimg.com/594295/480696598c976e00.png">
+<meta property="og:image" content="http://i1.piimg.com/594295/10ef45a816d9a8dd.png">
+<meta property="og:image" content="http://i1.piimg.com/594295/39164a31b01e3a5d.png">
+<meta property="og:image" content="http://i1.piimg.com/594295/aff738f58ab26d45.png">
+<meta property="og:image" content="http://i1.piimg.com/594295/e7696c682e0485df.png">
+<meta property="og:image" content="http://i1.piimg.com/594295/c18f99297ceae8f2.png">
+<meta property="og:image" content="http://i1.piimg.com/594295/3ae13e917f0f0b89.png">
+<meta property="og:image" content="http://i1.piimg.com/594295/5edfb9ee7cbfe2e5.png">
+<meta property="og:image" content="http://i1.piimg.com/594295/9f11a51b337b96a3.png">
+<meta property="og:image" content="http://i1.piimg.com/594295/856cb574c85cc991.png">
+<meta property="og:image" content="http://i1.piimg.com/594295/12427ebbd12ab3d9.png">
+<meta property="og:image" content="http://i1.piimg.com/594295/210672786a7fd30f.png">
+<meta property="og:image" content="http://yoursite.com/2016/07/15/SCSS随记/Image%20[17].png">
+<meta property="og:image" content="http://yoursite.com/2016/07/15/SCSS随记/Image%20[18].png">
+<meta property="og:image" content="http://yoursite.com/2016/07/15/SCSS随记/Image%20[19].png">
+<meta property="og:image" content="http://yoursite.com/2016/07/15/SCSS随记/Image%20[20].png">
+<meta property="og:image" content="http://yoursite.com/2016/07/15/SCSS随记/Image%20[21].png">
+<meta property="og:image" content="http://yoursite.com/2016/07/15/SCSS随记/Image%20[22].png">
+<meta property="og:image" content="http://yoursite.com/2016/07/15/SCSS随记/Image%20[23].png">
+<meta property="og:image" content="http://yoursite.com/2016/07/15/SCSS随记/Image%20[24].png">
+<meta property="og:image" content="http://yoursite.com/2016/07/15/SCSS随记/Image%20[25].png">
+<meta property="og:image" content="http://yoursite.com/2016/07/15/SCSS随记/Image%20[26].png">
+<meta property="og:image" content="http://yoursite.com/2016/07/15/SCSS随记/Image%20[27].png">
+<meta property="og:image" content="http://yoursite.com/2016/07/15/SCSS随记/Image%20[28].png">
+<meta property="og:image" content="http://yoursite.com/2016/07/15/SCSS随记/Image%20[29].png">
+<meta property="og:image" content="http://yoursite.com/2016/07/15/SCSS随记/Image%20[30].png">
+<meta property="og:image" content="http://yoursite.com/2016/07/15/SCSS随记/Image%20[31].png">
+<meta property="og:image" content="http://yoursite.com/2016/07/15/SCSS随记/Image%20[32].png">
+<meta property="og:image" content="http://yoursite.com/2016/07/15/SCSS随记/Image%20[33].png">
+<meta property="og:image" content="http://yoursite.com/2016/07/15/SCSS随记/Image%20[34].png">
+<meta property="og:image" content="http://yoursite.com/2016/07/15/SCSS随记/Image%20[35].png">
+<meta property="og:image" content="http://yoursite.com/2016/07/15/SCSS随记/Image%20[36].png">
+<meta property="og:image" content="http://yoursite.com/2016/07/15/SCSS随记/Image%20[37].png">
+<meta property="og:image" content="http://yoursite.com/2016/07/15/SCSS随记/Image%20[38].png">
+<meta property="og:image" content="http://yoursite.com/2016/07/15/SCSS随记/Image%20[39].png">
+<meta property="og:image" content="http://yoursite.com/2016/07/15/SCSS随记/Image%20[40].png">
+<meta property="og:image" content="http://yoursite.com/2016/07/15/SCSS随记/Image%20[41].png">
+<meta property="og:image" content="http://yoursite.com/2016/07/15/SCSS随记/Image%20[42].png">
+<meta property="og:image" content="http://yoursite.com/2016/07/15/SCSS随记/Image%20[43].png">
+<meta property="og:image" content="http://yoursite.com/2016/07/15/SCSS随记/Image%20[44].png">
+<meta property="og:image" content="http://yoursite.com/2016/07/15/SCSS随记/Image%20[45].png">
+<meta property="og:image" content="http://yoursite.com/2016/07/15/SCSS随记/Image%20[46].png">
+<meta property="og:image" content="http://yoursite.com/2016/07/15/SCSS随记/Image%20[47].png">
+<meta property="og:image" content="http://yoursite.com/2016/07/15/SCSS随记/Image%20[48].png">
+<meta property="og:image" content="http://yoursite.com/2016/07/15/SCSS随记/Image%20[49].png">
+<meta property="og:image" content="http://yoursite.com/2016/07/15/SCSS随记/Image%20[50].png">
+<meta property="og:image" content="http://yoursite.com/2016/07/15/SCSS随记/Image%20[51].png">
+<meta property="og:image" content="http://yoursite.com/2016/07/15/SCSS随记/Image%20[52].png">
+<meta property="og:image" content="http://yoursite.com/2016/07/15/SCSS随记/Image%20[53].png">
+<meta property="og:image" content="http://yoursite.com/2016/07/15/SCSS随记/Image%20[54].png">
+<meta property="og:image" content="http://yoursite.com/2016/07/15/SCSS随记/Image%20[55].png">
+<meta property="og:image" content="http://yoursite.com/2016/07/15/SCSS随记/Image%20[56].png">
+<meta property="og:image" content="http://yoursite.com/2016/07/15/SCSS随记/Image%20[57].png">
+<meta property="og:image" content="http://yoursite.com/2016/07/15/SCSS随记/Image%20[58].png">
+<meta property="og:image" content="http://yoursite.com/2016/07/15/SCSS随记/Image%20[59].png">
+<meta property="og:image" content="http://yoursite.com/2016/07/15/SCSS随记/Image%20[60].png">
+<meta property="og:image" content="http://yoursite.com/2016/07/15/SCSS随记/Image%20[61].png">
+<meta property="og:image" content="http://yoursite.com/2016/07/15/SCSS随记/Image%20[62].png">
+<meta property="og:updated_time" content="2017-05-16T03:51:20.915Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Sass日记">
+<meta name="twitter:description" content="Sass日记学习scss做的笔记，比较详细，作为查询手册吧">
+<meta name="twitter:image" content="http://i1.piimg.com/594295/80746f3074b4526c.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"hide"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/07/15/SCSS随记/"/>
+
+
+
+
+
+  <title> Sass日记 | passby </title>
+ 
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">passby</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">生活、个人博客</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/07/15/SCSS随记/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="passby">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.gif">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="passby">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="passby" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Sass日记
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-07-15T09:15:49+08:00">
+                2016-07-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Sass日记"><a href="#Sass日记" class="headerlink" title="Sass日记"></a>Sass日记</h1><p>学习scss做的笔记，比较详细，作为查询手册吧<br><a id="more"></a></p>
+<p style="color:green">sass支持css注释</p>
+
+<h3 id="样式"><a href="#样式" class="headerlink" title="样式"></a>样式</h3><h4 id="在sass中"><a href="#在sass中" class="headerlink" title="在sass中"></a>在sass中</h4><figure class="highlight scss"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">h1</span></div><div class="line"> <span class="attribute">color</span>:red</div><div class="line"> //缩进两个</div></pre></td></tr></table></figure>
+<h4 id="在scss中"><a href="#在scss中" class="headerlink" title="在scss中"></a>在scss中</h4><p>原生css写法<br><figure class="highlight scss"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">h1</span>&#123;</div><div class="line"></div><div class="line"> <span class="attribute">color</span>:red;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h4 id="在less中"><a href="#在less中" class="headerlink" title="在less中"></a>在less中</h4><p>支持原生css写法<br><figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">h1</span>&#123;</div><div class="line"></div><div class="line"> <span class="attribute">color</span>:red;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h4 id="stylus"><a href="#stylus" class="headerlink" title="stylus"></a>stylus</h4><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">h1&#123; <span class="attribute">color</span>:red; &#125;</div><div class="line"><span class="selector-tag">h1</span> <span class="attribute">color</span>:red</div><div class="line"><span class="selector-tag">h1</span> <span class="attribute">color</span> red</div></pre></td></tr></table></figure>
+<h3 id="变量的定义"><a href="#变量的定义" class="headerlink" title="变量的定义"></a>变量的定义</h3><h4 id="sass"><a href="#sass" class="headerlink" title="sass"></a>sass</h4><figure class="highlight scss"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$color</span>:red</div></pre></td></tr></table></figure>
+<h4 id="scss"><a href="#scss" class="headerlink" title="scss"></a>scss</h4><figure class="highlight scss"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$color</span>:red;</div></pre></td></tr></table></figure>
+<p>less<br><figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="variable">@color:</span>red;</div></pre></td></tr></table></figure></p>
+<p>stylus<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">  $color:red;</div><div class="line">color:red;</div><div class="line">//@尽量不要用@ 容易赋值不上  </div><div class="line">```    </div><div class="line">嵌套</div><div class="line"></div><div class="line">scss</div><div class="line">```scss</div><div class="line">body&#123;</div><div class="line"></div><div class="line"> header&#123;</div><div class="line"></div><div class="line"> &#125;</div><div class="line"></div><div class="line"> selection&#123;</div><div class="line"></div><div class="line"> &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>函数写法<br><figure class="highlight scss"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">@<span class="keyword">mixin</span> alert(<span class="variable">$color</span>:red)&#123;</div><div class="line"></div><div class="line">     <span class="attribute">color</span>:<span class="variable">$colorl</span>;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>less<br><figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.alert</span>(<span class="variable">@color</span>:blue)&#123;</div><div class="line"></div><div class="line">  <span class="attribute">color</span>:<span class="variable">@color</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>stylus<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">alert($color = blue)&#123;</div><div class="line"></div><div class="line">  color:$color;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<p>继承</p>
+<p>sass与stylus一样<br><figure class="highlight scss"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.block</span>&#123;</div><div class="line"></div><div class="line">      <span class="attribute">margin</span>:<span class="number">10px</span>;</div><div class="line"></div><div class="line">      <span class="attribute">padding</span>:<span class="number">5px</span>;</div><div class="line"></div><div class="line"> &#125;</div><div class="line"></div><div class="line"> <span class="selector-tag">p</span>&#123;</div><div class="line"></div><div class="line">      @<span class="keyword">extend</span> .block;</div><div class="line"></div><div class="line"> &#125;</div><div class="line">less</div><div class="line"></div><div class="line"><span class="selector-class">.block</span>&#123;</div><div class="line"></div><div class="line">  <span class="attribute">margin</span>:<span class="number">10px</span>;</div><div class="line"></div><div class="line">  <span class="attribute">padding</span>:<span class="number">5px</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-tag">p</span>&#123;</div><div class="line"></div><div class="line">   <span class="selector-class">.block</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="sass基础语法"><a href="#sass基础语法" class="headerlink" title="sass基础语法"></a>sass基础语法</h3><h4 id="利用sass创建工程"><a href="#利用sass创建工程" class="headerlink" title="利用sass创建工程"></a>利用sass创建工程</h4><ul>
+<li>创建文件夹即可<h4 id="利用compass创建工程"><a href="#利用compass创建工程" class="headerlink" title="利用compass创建工程"></a>利用compass创建工程</h4></li>
+</ul>
+<ol>
+<li>在当前目录地址栏输入<strong>CMD</strong> ，进入当前目录的<strong>CMD</strong>，输入命令 <code>compass creat hello</code><br><img src="http://i1.piimg.com/594295/80746f3074b4526c.png" alt="Alt text"></li>
+</ol>
+<p><img src="http://i1.piimg.com/594295/e3c3761a380bbe21.png" alt="Alt text"></p>
+<p><img src="http://i1.piimg.com/594295/c1678a693c6f3e53.png" alt="Alt text"></p>
+<ol>
+<li>通过命令<code>compass creat --bare --sass-dir&quot;sass&quot;--css-dir&quot;css&quot;--images-dir&quot;img&quot;--javascript-dir&quot;js&quot;</code> 可以指定相应文件存放的文件 夹</li>
+</ol>
+<h4 id="使用命令行"><a href="#使用命令行" class="headerlink" title="使用命令行"></a>使用命令行</h4><ol>
+<li><p>编译sass</p>
+<p> 在scss文件夹下进入<strong>CMD</strong> 输入命令 <code>scss demo1.scss demo1.css</code><br> <img src="http://i1.piimg.com/594295/6e4f055c1686d3f2.png" alt="Alt text"></p>
+</li>
+</ol>
+<ol>
+<li>监视sass文件变化 以达到自动编译的目的<br>在SCSS文件夹下进入<strong>CMD</strong> 输入命令 <code>scss --watch demo1.scss:demo1.css</code><br><img src="http://i1.piimg.com/594295/480696598c976e00.png" alt="Alt text"></li>
+</ol>
+<ol>
+<li><p>监视sass文件夹变化 以达到自动编译文件夹的目的<br><img src="http://i1.piimg.com/594295/10ef45a816d9a8dd.png" alt="Alt text"><br><img src="http://i1.piimg.com/594295/39164a31b01e3a5d.png" alt="Alt text"><br><img src="http://i1.piimg.com/594295/aff738f58ab26d45.png" alt="Alt text"></p>
+</li>
+<li><p>compass编译sass</p>
+<p>在<strong>hello</strong>文件夹下输入<strong>CMD</strong> 输入命令 <code>compass compile</code> 文件直接编译在<strong>stylesheets</strong>文件夹中<br><img src="http://i1.piimg.com/594295/e7696c682e0485df.png" alt="Alt text"></p>
+</li>
+</ol>
+<p>如果要强制编译所有的<strong>sass</strong>文件则使用<code>compass --force</code> 命令 不管<strong>sass</strong>有没有更新都编译一次</p>
+<ol>
+<li><p>compass监视sass</p>
+<p> 在<strong>hello</strong>文件夹下输入<strong> CMD </strong> 输入命令<code>compass watch</code> 文件夹里的内容直接编译在<strong>stylesheets</strong>文件夹中<br><img src="http://i1.piimg.com/594295/c18f99297ceae8f2.png" alt="Alt text"></p>
+</li>
+</ol>
+<ol>
+<li>编译出的css文件风格</li>
+</ol>
+<p>在<strong>hello</strong>文件夹下输入<strong>CMD</strong> 输入命令 <code>compass watch --force -s compact</code></p>
+<h3 id="理解config-rb"><a href="#理解config-rb" class="headerlink" title="理解config.rb"></a>理解config.rb</h3><p><img src="http://i1.piimg.com/594295/3ae13e917f0f0b89.png" alt="Alt text"></p>
+<h4 id="配置环境"><a href="#配置环境" class="headerlink" title="配置环境"></a>配置环境</h4><p><code>environment=:development</code></p>
+<p>压缩比例动态设置：<code>output_style = (environment == :development) ? :expanded : :compressed</code><br><img src="http://i1.piimg.com/594295/5edfb9ee7cbfe2e5.png" alt="Alt text"></p>
+<h3 id="sass注释"><a href="#sass注释" class="headerlink" title="sass注释"></a>sass注释</h3><ul>
+<li><p>//单行注释 不会编译到css文件中</p>
+</li>
+<li><p>/**/会被编译css文件中</p>
+</li>
+<li><p>/！ /重要注释 在所有风格中都会保留</p>
+</li>
+</ul>
+<p style="color:red;font-size:22px;">注释中文会出现编码错误</p>
+
+<p>在<strong>ruby</strong>跟目录下<code>C:\Ruby23-x64\lib\ruby\gems\2.3.0\gems\sass-3.4.22\lib\sass找到engine.rb</code>文件</p>
+<p>添加<code>Encoding.default_external = Encoding.find(&#39;utf-8&#39;)</code></p>
+<p><img src="http://i1.piimg.com/594295/9f11a51b337b96a3.png" alt="Alt text"></p>
+<h3 id="sass语法"><a href="#sass语法" class="headerlink" title="sass语法"></a>sass语法</h3><h4 id="sass变量"><a href="#sass变量" class="headerlink" title="sass变量"></a>sass变量</h4><h5 id="局部变量"><a href="#局部变量" class="headerlink" title="局部变量"></a>局部变量</h5><p>  $变量名</p>
+<p><img src="http://i1.piimg.com/594295/856cb574c85cc991.png" alt="Alt text"> <img src="http://i1.piimg.com/594295/12427ebbd12ab3d9.png" alt="Alt text"></p>
+<h5 id="全局变量"><a href="#全局变量" class="headerlink" title="全局变量"></a>全局变量</h5><p>$变量名：值 !global;<br><img src="http://i1.piimg.com/594295/210672786a7fd30f.png" alt="Alt text"> <img src="/2016/07/15/SCSS随记/./Image [17].png" alt="Alt text"></p>
+<h5 id="变量默认值"><a href="#变量默认值" class="headerlink" title="变量默认值"></a>变量默认值</h5><p> 编译器先编译默认值。主要用于部分文件，见下文。<br><img src="/2016/07/15/SCSS随记/./Image [18].png" alt="Alt text"> <img src="/2016/07/15/SCSS随记/./Image [19].png" alt="Alt text"></p>
+<h5 id="多值变量"><a href="#多值变量" class="headerlink" title="多值变量"></a>多值变量</h5><p><img src="/2016/07/15/SCSS随记/./Image [20].png" alt="Alt text"> <img src="/2016/07/15/SCSS随记/./Image [21].png" alt="Alt text"></p>
+<p>$maps类型<br><img src="/2016/07/15/SCSS随记/./Image [22].png" alt="Alt text"> <img src="/2016/07/15/SCSS随记/./Image [23].png" alt="Alt text"></p>
+<h5 id="变量的特殊用法"><a href="#变量的特殊用法" class="headerlink" title="变量的特殊用法"></a>变量的特殊用法</h5><p> 变量用在属性或者选择器上，使用 <strong>#{变量名}</strong> 变量可以使用中划线或者下划线 即<code>$text_info=$text-info</code></p>
+<p><img src="/2016/07/15/SCSS随记/./Image [24].png" alt="Alt text">     </p>
+<p><img src="/2016/07/15/SCSS随记/./Image [25].png" alt="Alt text"></p>
+<p>###　样式导入</p>
+<h4 id="部分文件"><a href="#部分文件" class="headerlink" title="部分文件"></a>部分文件</h4><p>部分文件也是一个sass文件，但是并不需要生产css。根据约定，sass局部文件的文件名以下划线开头。局部文件可 以被多个不同文件引用。当一些样式需要在多个页面甚至多个页面中使用时， 这非常有用。在这中情况下，有时需要在 你的样式表中对导入的样式做一些修改，sass刚好有一个功能解决这个问题，即默认变量值。</p>
+<p>以下划线开头的文件sass不会编译。只为导入或者引用做的，不会被编译。<br><img src="/2016/07/15/SCSS随记/./Image [26].png" alt="Alt text"></p>
+<h4 id="嵌套导入"><a href="#嵌套导入" class="headerlink" title="嵌套导入"></a>嵌套导入</h4><h4 id="原生导入"><a href="#原生导入" class="headerlink" title="原生导入"></a>原生导入</h4><p> 因为sass和css都具有@import关键字，并且一模一样，区分：</p>
+<ul>
+<li><p>被导入文件的名字以.css结尾</p>
+</li>
+<li><p>被导入文件的名字是一个URL地址（比如 <a href="http://xxx/css.css）" target="_blank" rel="external">http://xxx/css.css）</a></p>
+</li>
+<li><p>被导入文件的名字是css的URL()值</p>
+</li>
+</ul>
+<p>以上三种情况会被识别为原生css导入 </p>
+<p><img src="/2016/07/15/SCSS随记/./Image [27].png" alt="Alt text">  <img src="/2016/07/15/SCSS随记/./Image [28].png" alt="Alt text"></p>
+<p> 导入方法</p>
+<p><img src="/2016/07/15/SCSS随记/./Image [29].png" alt="Alt text"></p>
+<h3 id="嵌套"><a href="#嵌套" class="headerlink" title="嵌套"></a>嵌套</h3><h4 id="选择器嵌套"><a href="#选择器嵌套" class="headerlink" title="选择器嵌套"></a>选择器嵌套</h4><figure class="highlight scss"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.body</span>&#123;</div><div class="line"></div><div class="line"> <span class="selector-tag">header</span>&#123;</div><div class="line"></div><div class="line"> &#125;</div><div class="line"></div><div class="line"> selection&#123;</div><div class="line"></div><div class="line"> &#125;</div></pre></td></tr></table></figure>
+<p>   body下面的<strong>header</strong>和<strong>selection</strong></p>
+<h4 id="属性嵌套"><a href="#属性嵌套" class="headerlink" title="属性嵌套"></a>属性嵌套</h4><ul>
+<li>只对有中横线样式的属性有效</li>
+</ul>
+<ul>
+<li>对于有中横线的属性<br><img src="/2016/07/15/SCSS随记/./Image [30].png" alt="Alt text"></li>
+</ul>
+<h4 id="amp-引用父选择器"><a href="#amp-引用父选择器" class="headerlink" title="&amp;引用父选择器"></a><code>&amp;</code>引用父选择器</h4><p><img src="/2016/07/15/SCSS随记/./Image [31].png" alt="Alt text"></p>
+<p>如果要达到标签的class例如 a.main<br><img src="/2016/07/15/SCSS随记/./Image [32].png" alt="Alt text"></p>
+<h4 id="跳出嵌套-at-root"><a href="#跳出嵌套-at-root" class="headerlink" title="跳出嵌套 @at-root"></a>跳出嵌套 @at-root</h4><p>默认 <code>@at-root</code>只会跳出选择器嵌套，而不能跳出<code>@media</code>或 <code>@suppot</code>，如果要跳出这两种，则使用<code>@at-root (without:media)</code>，<code>@at-root (without:suppot)</code>。这个语法关键词有四个：<strong>all</strong>（表示所有），<strong>rule</strong>（表示常规css），<strong>media</strong>（表示media），<strong>support</strong>（表示support因为<code>@support</code>目前还没有广泛使用，所以在此 不详细表述）。我<br>我们默认<code>@at-root</code>其实就是<code>@at-root:without:rule</code>)。</p>
+<p><img src="/2016/07/15/SCSS随记/./Image [33].png" alt="Alt text"><br><img src="/2016/07/15/SCSS随记/./Image [34].png" alt="Alt text"><br><img src="/2016/07/15/SCSS随记/./Image [35].png" alt="Alt text"></p>
+<p>默认跳出<strong>media</strong>，但仍然嵌套在<strong>body</strong>中。如下图同时设置两个参数，则可以跳出<strong>body</strong></p>
+<p><img src="/2016/07/15/SCSS随记/./Image [36].png" alt="Alt text"></p>
+<h4 id="at-root与-amp-组合引用"><a href="#at-root与-amp-组合引用" class="headerlink" title="@at-root与&amp;组合引用"></a><code>@at-root</code>与<code>&amp;</code>组合引用</h4><p><img src="/2016/07/15/SCSS随记/./Image [37].png" alt="Alt text"></p>
+<h3 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h3><h4 id="简单继承"><a href="#简单继承" class="headerlink" title="简单继承"></a>简单继承</h4><p><img src="/2016/07/15/SCSS随记/./Image [38].png" alt="Alt text"></p>
+<h4 id="多继承"><a href="#多继承" class="headerlink" title="多继承"></a>多继承</h4><p><img src="/2016/07/15/SCSS随记/./Image [39].png" alt="Alt text"></p>
+<h4 id="链式继承"><a href="#链式继承" class="headerlink" title="链式继承"></a>链式继承</h4><p><img src="/2016/07/15/SCSS随记/./Image [40].png" alt="Alt text"></p>
+<h4 id="继承的局限性"><a href="#继承的局限性" class="headerlink" title="继承的局限性"></a>继承的局限性</h4><p>如包含选择器<code>.one .two</code>或者相邻兄弟选择器<code>.one+.two</code>不能被继承，又比如如果继承的元素是<strong>a</strong>，恰巧这个<strong>a</strong>元素又有<strong>hover</strong>状态的形式，那么<strong>hover</strong>状态也会被继承</p>
+<h4 id="继承交叉合并"><a href="#继承交叉合并" class="headerlink" title="继承交叉合并"></a>继承交叉合并</h4><p><img src="/2016/07/15/SCSS随记/./Image [41].png" alt="Alt text"></p>
+<h4 id="继承作用域"><a href="#继承作用域" class="headerlink" title="继承作用域"></a>继承作用域</h4><p><img src="/2016/07/15/SCSS随记/./Image [42].png" alt="Alt text"><br><img src="/2016/07/15/SCSS随记/./Image [43].png" alt="Alt text"></p>
+<h3 id="占位选择器"><a href="#占位选择器" class="headerlink" title="占位选择器%"></a>占位选择器<code>%</code></h3><p>优势在于：如果不调用则不会有任何多余的css文件，避免了以前在在一些基础文件中定义了很多基础样式，然后在实际应用中不管是否使用了@extend去继承相应的样式，都会解析出多有的样式。占位选择器以%标识定义，通过@extend调用<br><img src="/2016/07/15/SCSS随记/./Image [44].png" alt="Alt text"></p>
+<h3 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h3><ul>
+<li><p>Number</p>
+</li>
+<li><p>String</p>
+</li>
+<li><p>List</p>
+</li>
+<li><p>Map</p>
+</li>
+<li><p>Color</p>
+</li>
+<li><p>Boolean</p>
+</li>
+<li><p>Null<br><img src="/2016/07/15/SCSS随记/./Image [45].png" alt="Alt text"></p>
+</li>
+</ul>
+<h3 id="变量操作"><a href="#变量操作" class="headerlink" title="变量操作"></a>变量操作</h3><ul>
+<li>==，！=  所有数字类型都支持</li>
+</ul>
+<ul>
+<li><p>&lt;,&gt;,&lt;=,&gt;=  仅支持数字类型</p>
+<ul>
+<li>+,-,*,/,%<br><img src="/2016/07/15/SCSS随记/./Image [46].png" alt="Alt text"><br><img src="/2016/07/15/SCSS随记/./Image [47].png" alt="Alt text"><br><img src="/2016/07/15/SCSS随记/./Image [48].png" alt="Alt text"></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>@mixin<br><img src="/2016/07/15/SCSS随记/./Image [49].png" alt="Alt text"></li>
+</ul>
+<ul>
+<li>传递多值参数<br><img src="/2016/07/15/SCSS随记/./Image [50].png" alt="Alt text"></li>
+</ul>
+<p> 应用于响应式<br><img src="/2016/07/15/SCSS随记/./Image [51].png" alt="Alt text"></p>
+<h3 id="内置函数"><a href="#内置函数" class="headerlink" title="内置函数"></a>内置函数</h3><p>内置函数太多，不一一赘述，只列举常用的几个：</p>
+<ul>
+<li>rgb()、rgba()<br><img src="/2016/07/15/SCSS随记/./Image [52].png" alt="Alt text"><br><img src="/2016/07/15/SCSS随记/./Image [53].png" alt="Alt text"></li>
+</ul>
+<ul>
+<li>lighten()把颜色变浅、darken()把颜色加深</li>
+</ul>
+<p><img src="/2016/07/15/SCSS随记/./Image [54].png" alt="Alt text"></p>
+<ul>
+<li>str-length()、str-index<br><img src="/2016/07/15/SCSS随记/./Image [55].png" alt="Alt text"></li>
+</ul>
+<ul>
+<li>自定义函数<br><img src="/2016/07/15/SCSS随记/./Image [56].png" alt="Alt text"></li>
+</ul>
+<ul>
+<li>@debug、@warn、@error<br><img src="/2016/07/15/SCSS随记/./Image [57].png" alt="Alt text"><br><img src="/2016/07/15/SCSS随记/./Image [58].png" alt="Alt text"></li>
+</ul>
+<h3 id="条件判断"><a href="#条件判断" class="headerlink" title="条件判断"></a>条件判断</h3><h4 id="if"><a href="#if" class="headerlink" title="if"></a>if</h4><p><img src="/2016/07/15/SCSS随记/./Image [59].png" alt="Alt text"></p>
+<h4 id="for"><a href="#for" class="headerlink" title="for"></a>for</h4><p><img src="/2016/07/15/SCSS随记/./Image [60].png" alt="Alt text"></p>
+<h4 id="while"><a href="#while" class="headerlink" title="while"></a>while</h4><p><img src="/2016/07/15/SCSS随记/./Image [61].png" alt="Alt text"></p>
+<h4 id="each"><a href="#each" class="headerlink" title="each"></a>each</h4><p><img src="/2016/07/15/SCSS随记/./Image [62].png" alt="Alt text"></p>
+<p>)</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Sass/" rel="tag"># Sass</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/07/08/Next配置文件注释/" rel="next" title="Hexo配置文件注释">
+                <i class="fa fa-chevron-left"></i> Hexo配置文件注释
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/10/05/css边框效果/" rel="prev" title="CSS边框效果">
+                CSS边框效果 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="passby" />
+          <p class="site-author-name" itemprop="name">passby</p>
+          <p class="site-description motion-element" itemprop="description">A man living in the word with his power</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">15</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/jiangxiaolin1995" target="_blank" title="github">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/2908142897/profile?topnav=1&wvr=6" target="_blank" title="weibo">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://github.com/" title="github" target="_blank">github</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+  <div class="widget-wrap">
+    <h3 class="widget-title"></h3>
+    <div class="widget">
+     
+    </div>
+  </div>
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Sass日记"><span class="nav-number">1.</span> <span class="nav-text">Sass日记</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#样式"><span class="nav-number">1.0.1.</span> <span class="nav-text">样式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#在sass中"><span class="nav-number">1.0.1.1.</span> <span class="nav-text">在sass中</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#在scss中"><span class="nav-number">1.0.1.2.</span> <span class="nav-text">在scss中</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#在less中"><span class="nav-number">1.0.1.3.</span> <span class="nav-text">在less中</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#stylus"><span class="nav-number">1.0.1.4.</span> <span class="nav-text">stylus</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#变量的定义"><span class="nav-number">1.0.2.</span> <span class="nav-text">变量的定义</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#sass"><span class="nav-number">1.0.2.1.</span> <span class="nav-text">sass</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#scss"><span class="nav-number">1.0.2.2.</span> <span class="nav-text">scss</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sass基础语法"><span class="nav-number">1.0.3.</span> <span class="nav-text">sass基础语法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#利用sass创建工程"><span class="nav-number">1.0.3.1.</span> <span class="nav-text">利用sass创建工程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#利用compass创建工程"><span class="nav-number">1.0.3.2.</span> <span class="nav-text">利用compass创建工程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用命令行"><span class="nav-number">1.0.3.3.</span> <span class="nav-text">使用命令行</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#理解config-rb"><span class="nav-number">1.0.4.</span> <span class="nav-text">理解config.rb</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#配置环境"><span class="nav-number">1.0.4.1.</span> <span class="nav-text">配置环境</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sass注释"><span class="nav-number">1.0.5.</span> <span class="nav-text">sass注释</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sass语法"><span class="nav-number">1.0.6.</span> <span class="nav-text">sass语法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#sass变量"><span class="nav-number">1.0.6.1.</span> <span class="nav-text">sass变量</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#局部变量"><span class="nav-number">1.0.6.1.1.</span> <span class="nav-text">局部变量</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#全局变量"><span class="nav-number">1.0.6.1.2.</span> <span class="nav-text">全局变量</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#变量默认值"><span class="nav-number">1.0.6.1.3.</span> <span class="nav-text">变量默认值</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#多值变量"><span class="nav-number">1.0.6.1.4.</span> <span class="nav-text">多值变量</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#变量的特殊用法"><span class="nav-number">1.0.6.1.5.</span> <span class="nav-text">变量的特殊用法</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#部分文件"><span class="nav-number">1.0.6.2.</span> <span class="nav-text">部分文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#嵌套导入"><span class="nav-number">1.0.6.3.</span> <span class="nav-text">嵌套导入</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#原生导入"><span class="nav-number">1.0.6.4.</span> <span class="nav-text">原生导入</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#嵌套"><span class="nav-number">1.0.7.</span> <span class="nav-text">嵌套</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#选择器嵌套"><span class="nav-number">1.0.7.1.</span> <span class="nav-text">选择器嵌套</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#属性嵌套"><span class="nav-number">1.0.7.2.</span> <span class="nav-text">属性嵌套</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#amp-引用父选择器"><span class="nav-number">1.0.7.3.</span> <span class="nav-text">&引用父选择器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#跳出嵌套-at-root"><span class="nav-number">1.0.7.4.</span> <span class="nav-text">跳出嵌套 @at-root</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#at-root与-amp-组合引用"><span class="nav-number">1.0.7.5.</span> <span class="nav-text">@at-root与&组合引用</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#继承"><span class="nav-number">1.0.8.</span> <span class="nav-text">继承</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#简单继承"><span class="nav-number">1.0.8.1.</span> <span class="nav-text">简单继承</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#多继承"><span class="nav-number">1.0.8.2.</span> <span class="nav-text">多继承</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#链式继承"><span class="nav-number">1.0.8.3.</span> <span class="nav-text">链式继承</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#继承的局限性"><span class="nav-number">1.0.8.4.</span> <span class="nav-text">继承的局限性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#继承交叉合并"><span class="nav-number">1.0.8.5.</span> <span class="nav-text">继承交叉合并</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#继承作用域"><span class="nav-number">1.0.8.6.</span> <span class="nav-text">继承作用域</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#占位选择器"><span class="nav-number">1.0.9.</span> <span class="nav-text">占位选择器%</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据类型"><span class="nav-number">1.0.10.</span> <span class="nav-text">数据类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#变量操作"><span class="nav-number">1.0.11.</span> <span class="nav-text">变量操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#内置函数"><span class="nav-number">1.0.12.</span> <span class="nav-text">内置函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#条件判断"><span class="nav-number">1.0.13.</span> <span class="nav-text">条件判断</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#if"><span class="nav-number">1.0.13.1.</span> <span class="nav-text">if</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#for"><span class="nav-number">1.0.13.2.</span> <span class="nav-text">for</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#while"><span class="nav-number">1.0.13.3.</span> <span class="nav-text">while</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#each"><span class="nav-number">1.0.13.4.</span> <span class="nav-text">each</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">passby</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+  
+</body>
+</html>
