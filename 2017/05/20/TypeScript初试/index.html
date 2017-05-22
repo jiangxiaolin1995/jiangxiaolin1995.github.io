@@ -1,0 +1,761 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="TypeScript," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="passby" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="字符串新特性多行字符串普通javascript代码中，字符串换行会报错，要用双撇号声明多行字符串，即``  ，即数字1左边的按键12345var content = &quot;aaaa&quot;+    &quot;cccc&quot;var content2 = `aaaa                ccc                bbb`">
+<meta name="keywords" content="TypeScript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="TypeScript初试">
+<meta property="og:url" content="http://yoursite.com/2017/05/20/TypeScript初试/index.html">
+<meta property="og:site_name" content="passby">
+<meta property="og:description" content="字符串新特性多行字符串普通javascript代码中，字符串换行会报错，要用双撇号声明多行字符串，即``  ，即数字1左边的按键12345var content = &quot;aaaa&quot;+    &quot;cccc&quot;var content2 = `aaaa                ccc                bbb`">
+<meta property="og:updated_time" content="2017-05-22T08:25:40.931Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="TypeScript初试">
+<meta name="twitter:description" content="字符串新特性多行字符串普通javascript代码中，字符串换行会报错，要用双撇号声明多行字符串，即``  ，即数字1左边的按键12345var content = &quot;aaaa&quot;+    &quot;cccc&quot;var content2 = `aaaa                ccc                bbb`">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/05/20/TypeScript初试/"/>
+
+
+
+
+
+  <title> TypeScript初试 | passby </title>
+ 
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">passby</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">生活、个人博客</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/20/TypeScript初试/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="passby">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.gif">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="passby">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="passby" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                TypeScript初试
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-20T15:13:45+08:00">
+                2017-05-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="字符串新特性"><a href="#字符串新特性" class="headerlink" title="字符串新特性"></a>字符串新特性</h3><h4 id="多行字符串"><a href="#多行字符串" class="headerlink" title="多行字符串"></a>多行字符串</h4><p>普通<code>javascript</code>代码中，字符串换行会报错，要用双撇号声明多行字符串，即<code>`` </code> ，即数字1左边的按键<br><figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> content = <span class="string">"aaaa"</span>+</div><div class="line">    <span class="string">"cccc"</span></div><div class="line"><span class="keyword">var</span> content2 = <span class="string">`aaaa</span></div><div class="line">                ccc</div><div class="line">                bbb`</div></pre></td></tr></table></figure></p>
+<a id="more"></a>
+<h4 id="字符串模板"><a href="#字符串模板" class="headerlink" title="字符串模板"></a>字符串模板</h4><figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> myname = <span class="string">'lin'</span></div><div class="line"><span class="keyword">var</span> getage = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	<span class="keyword">return</span> <span class="number">18</span></div><div class="line">&#125;</div><div class="line"><span class="built_in">console</span>.log(<span class="string">`My name is <span class="subst">$&#123;myname&#125;</span>`</span>)</div><div class="line"><span class="built_in">console</span>.log(<span class="string">`My age is <span class="subst">$&#123;getage()&#125;</span>`</span>)</div></pre></td></tr></table></figure>
+<p>那么多行字符串有什么威力呢？<br><figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log(<span class="string">`&lt;div&gt;</span></div><div class="line">&lt;span&gt;<span class="subst">$&#123;myname&#125;</span>&lt;/span&gt;</div><div class="line">&lt;span&gt;<span class="subst">$&#123;getage()&#125;</span>&lt;/span&gt;</div><div class="line">&lt;/div&gt;`)</div></pre></td></tr></table></figure></p>
+<p>这样，如果你在项目中，要定义一个<code>html</code>模板，是不是很轻松呢，不用费力的输入引号和加号了，是不是很赞。</p>
+<h4 id="自动拆分字符串"><a href="#自动拆分字符串" class="headerlink" title="自动拆分字符串"></a>自动拆分字符串</h4><p>那么，什么是自动拆分字符串呢，当你在用一个字符串模板去调用一个方法的时候，这个字符串模板里面表达式的值会自动赋给被调用方法中的参数吗，听起来有点迷糊，看例子。<br><figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params">template, name, age</span>) </span>&#123; </div><div class="line">    <span class="built_in">console</span>.log(template)</div><div class="line">    <span class="built_in">console</span>.log(name)</div><div class="line">    <span class="built_in">console</span>.log(age)</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> myname = <span class="string">'lin'</span></div><div class="line"><span class="keyword">var</span> getage = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="number">18</span></div><div class="line">&#125;</div><div class="line">test<span class="string">`my name is <span class="subst">$&#123;myname&#125;</span>,i'm <span class="subst">$&#123;getage()&#125;</span></span></div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>注意：如果第一个 <code>template</code> 变量不写，也就是<code>text</code>只有两个变量，则<code>getage</code>无法显示。</p>
+</blockquote>
+<h3 id="参数新特性"><a href="#参数新特性" class="headerlink" title="参数新特性"></a>参数新特性</h3><h4 id="参数类型"><a href="#参数类型" class="headerlink" title="参数类型"></a>参数类型</h4><p>在参数名称后面使用冒号来指定参数的类型<br><figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> maname: <span class="built_in">string</span> = <span class="string">'lin'</span></div></pre></td></tr></table></figure></p>
+<h4 id="默认参数"><a href="#默认参数" class="headerlink" title="默认参数"></a>默认参数</h4><p>在参数声明后面用等号来指定参数的默认值</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> maname: <span class="built_in">string</span> = <span class="string">'lin'</span></div></pre></td></tr></table></figure>
+<p>给方法的变量指定默认值<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">function test(a: string, b: string, c: string = 'lin') &#123;</div><div class="line">    console.log(a)</div><div class="line">    console.log(b)</div><div class="line">    console.log(c)</div><div class="line">&#125;</div><div class="line">test('x', 'y', 'z')</div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>默认三个参数后，必须传三个参数，否则会报错，如果指定了默认值，则可以传两个,而且默认参数必须为最后一个，否则会报错。</p>
+</blockquote>
+<h4 id="可选参数"><a href="#可选参数" class="headerlink" title="可选参数"></a>可选参数</h4><p>在方法的参数声明后面用问号来标明此参数为可选参数<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">function test(a: string, b?: string , c: string = 'lin') &#123;</div><div class="line">    console.log(a)</div><div class="line">    console.log(b)</div><div class="line">    console.log(c)</div><div class="line">&#125;</div><div class="line">test('x')</div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>因为<code>b</code>参数是可选的，<code>c</code>参数是默认的，所以就可以传一个值<br>注意：</p>
+<ul>
+<li>要处理<code>可选参数</code>没传值的情况，比如<code>b</code>没传值，而<code>console.log(b.length)</code>这个时候会报错。可选参数默认是<code>undefined</code>。</li>
+<li><code>可选参数</code>不能声明在<code>必选参数</code>前面的，要跟<code>默认参数</code>一样，声明在不选<code>参数后面</code><h3 id="函数新特性"><a href="#函数新特性" class="headerlink" title="函数新特性"></a>函数新特性</h3><h4 id="Rest-and-Spread操作符"><a href="#Rest-and-Spread操作符" class="headerlink" title="Rest and Spread操作符"></a>Rest and Spread操作符</h4>用来声明任意数量的方法参数<figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">func1</span>(<span class="params">...args</span>) </span>&#123;</div><div class="line">    </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+<p><code>...args</code>即操作符，可以传任意数量的参数给<code>func1</code>函数。<br><code>...args</code>即<code>JavaScript</code>的<code>arguments</code>对象</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">func1</span>(<span class="params">...args</span>) </span>&#123;</div><div class="line">    args.forEach(<span class="function"><span class="keyword">function</span> (<span class="params">arg</span>) </span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(arg)</div><div class="line">    &#125;)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>以上<code>TypeScript</code>代码转化为<code>JavaScript</code>代码为<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">func1</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> args = [];</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> _i = <span class="number">0</span>; _i &lt; <span class="built_in">arguments</span>.length; _i++) &#123;</div><div class="line">        args[_i] = <span class="built_in">arguments</span>[_i];</div><div class="line">    &#125;</div><div class="line">    args.forEach(<span class="function"><span class="keyword">function</span> (<span class="params">arg</span>) </span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(arg);</div><div class="line">    &#125;);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p> <strong>ES6 <code>...args</code>用法</strong><br> 在ES6中，<code>...args</code>用法是函数参数确定，可以把任意数量的数组，转化成一个固定数量参数的函数，如果数组不够参数数量，则多余的参数为<code>undefined</code>，多的则自动剔除。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">func1</span>(<span class="params">a, b, c</span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(a);</div><div class="line">    <span class="built_in">console</span>.log(b);</div><div class="line">    <span class="built_in">console</span>.log(c);</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> args = [<span class="number">1</span>, <span class="number">2</span>];</div><div class="line">func1(...args);</div><div class="line"><span class="keyword">var</span> args2 = [<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>];</div><div class="line">func1(...args2);</div></pre></td></tr></table></figure></p>
+<h4 id="generator函数"><a href="#generator函数" class="headerlink" title="generator函数"></a>generator函数</h4><p>控制函数的执行过程，手工暂停和恢复代码执行<br><figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span>* <span class="title">doSomething</span>(<span class="params"></span>)</span>&#123; <span class="comment">// 函数后面的 * 必须有</span></div><div class="line">  <span class="built_in">console</span>.log(<span class="string">'start'</span>);</div><div class="line">  <span class="keyword">yield</span>; <span class="comment">//类似于打断点</span></div><div class="line">  <span class="built_in">console</span>.log(<span class="string">'finish'</span>);</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> func1 = doSomething(); <span class="comment">// 直接调用 doSomething()方法无效，必须定义给一个变量，然后调用变量的 next() 方法</span></div><div class="line">func1.next();</div><div class="line"><span class="comment">// 遇见 yield 停住</span></div><div class="line">func1.next();</div></pre></td></tr></table></figure></p>
+<h4 id="结构表达式"><a href="#结构表达式" class="headerlink" title="结构表达式"></a>结构表达式</h4><p>通过表达式将对象或数组拆解成任意数量的变量<br><figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getStock</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> &#123;</div><div class="line">        code: <span class="string">'IBM'</span>,</div><div class="line">        price: <span class="number">100</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>在<code>JavaScript</code>中要获取对象值要这样写：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> stock = getStock();</div><div class="line"><span class="keyword">var</span> code = stock.code;</div><div class="line"><span class="keyword">var</span> price = stock.price;</div></pre></td></tr></table></figure></p>
+<p>在<code>TypeScript</code>中，有一种新的语法：<br><figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> &#123; code, price &#125; = getStock();</div></pre></td></tr></table></figure></p>
+<p>这样一行代码就可以完成上面三行代码完成的事情。</p>
+<blockquote>
+<p>注意：<br> <code>{}</code>中的变量要跟定义函数中的对象变量名字一致<br>        如果非要自己给以名字，可以写成<code>var { code: codeX, price } = getStock();</code> 意思就是说从对象中取出<code>code</code>属性，然后放在本地一个叫<code>codeX</code>的变量中。</p>
+<h5 id="如何取一个嵌套的属性"><a href="#如何取一个嵌套的属性" class="headerlink" title="如何取一个嵌套的属性"></a>如何取一个嵌套的属性</h5><figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getStock</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> &#123;</div><div class="line">        code: <span class="string">'IBM'</span>,</div><div class="line">        price: &#123;</div><div class="line">			price1: <span class="number">200</span>,</div><div class="line">			price2: <span class="number">300</span></div><div class="line">		&#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> &#123; code, price: &#123;price2&#125; &#125; = getStock();</div></pre></td></tr></table></figure>
+<p>只需要在变量后面在添加一个解构表达式， <code>对象: {对象}</code></p>
+</blockquote>
+<p>如果函数中还有别的属性，只要解构表达式中的变量名没错，即使没有调用到别的属性，也并不妨碍解构表达式正常工作。</p>
+<h5 id="基于数组的解构表达式"><a href="#基于数组的解构表达式" class="headerlink" title="基于数组的解构表达式"></a>基于数组的解构表达式</h5><figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr1 = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>];</div><div class="line"><span class="keyword">var</span> [number1, number2] = arr1;</div><div class="line"><span class="built_in">console</span>.log(number1);</div><div class="line"><span class="built_in">console</span>.log(number2);</div></pre></td></tr></table></figure>
+<blockquote>
+<p><code>number1</code>,<code>number2</code>只是变量名，不是对应数组下标，如果我只是想取数组后两个值，写法如下;<br> <code>var [ , , number1, number2] = arr1;</code><br>用 <code>，</code>，值为空隔开。<br>解构表达式与<code>rest</code>操作符（…args）<br><figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr1 = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>];</div><div class="line"><span class="keyword">var</span> [number1, number2, ...args] = arr1;</div><div class="line"><span class="built_in">console</span>.log(number1);</div><div class="line"><span class="built_in">console</span>.log(number2);</div><div class="line"><span class="built_in">console</span>.log(args);</div></pre></td></tr></table></figure></p>
+</blockquote>
+<h5 id="把解构表达式作为方法的参数"><a href="#把解构表达式作为方法的参数" class="headerlink" title="把解构表达式作为方法的参数"></a>把解构表达式作为方法的参数</h5><figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr1 = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>];</div><div class="line"><span class="keyword">var</span> [number1, number2] = arr1;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">doSomething</span>(<span class="params">[<span class="built_in">number</span>, number2, ...args]</span>) </span>&#123;   </div><div class="line"><span class="built_in">console</span>.log(number1);</div><div class="line"><span class="built_in">console</span>.log(number2);</div><div class="line"><span class="built_in">console</span>.log(args);</div><div class="line">&#125;</div><div class="line">doSomething(arr1);</div></pre></td></tr></table></figure>
+<blockquote>
+<p>函数参数是解构表达式，那么这个方法会根据这个解构表达式，把传进来的数组拆分成相应的变量</p>
+<h3 id="箭头表达式"><a href="#箭头表达式" class="headerlink" title="箭头表达式"></a>箭头表达式</h3><p>用来声明匿名函数，消除传统匿名函数的<code>this</code>指针问题<br><figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> sum = <span class="function">(<span class="params">arg1, arg2</span>) =&gt;</span> arg1 + arg2;</div></pre></td></tr></table></figure></p>
+<p>如果方法里只有一行，可以不用写<code>{}</code>，也不需要写<code>return</code>关键字。<br>如果函数是多行，也需要写<code>{}</code>和<code>return</code>关键字。<br><figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> sum = <span class="function">(<span class="params">arg1, arg2</span>) =&gt;</span> &#123;</div><div class="line">	<span class="keyword">return</span> arg1 + arg2;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+</blockquote>
+<ol>
+<li><p>无参数箭头表达式</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> sum = <span class="function"><span class="params">()</span> =&gt;</span> &#123; &#125;;</div></pre></td></tr></table></figure>
+</li>
+<li><p>只有一个参数时，可以不用写<code>（）</code>，直接写参数的变量名即可</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> sum = <span class="function"><span class="params">arg</span> =&gt;</span> &#123; </div><div class="line">	<span class="built_in">console</span>.log(arg)</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>实际应用<br><figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> myArr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>];</div><div class="line"><span class="built_in">console</span>.log(myArr.filter(<span class="function"><span class="params">value</span> =&gt;</span> value%<span class="number">2</span> == <span class="number">0</span>))</div></pre></td></tr></table></figure></p>
+<p>消除<code>this</code>困扰<br><figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getStock</span>(<span class="params">name: <span class="built_in">string</span></span>) </span>&#123; </div><div class="line">    <span class="keyword">this</span>.name = name;</div><div class="line">    setInterval( <span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">'name is'</span> + <span class="keyword">this</span>.name)</div><div class="line">    &#125;,<span class="number">1000</span>)</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> stock = <span class="keyword">new</span> getStock(<span class="string">'NBA'</span>);</div></pre></td></tr></table></figure></p>
+<p>普通的<code>JavaScript</code>代码不会显示任何东西<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getStock</span>(<span class="params">name: string</span>) </span>&#123; </div><div class="line">    <span class="keyword">this</span>.name = name;</div><div class="line">    setInterval( <span class="function"><span class="keyword">function</span>(<span class="params"></span>) =&gt; </span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">'name is'</span> + <span class="keyword">this</span>.name)</div><div class="line">    &#125;,<span class="number">1000</span>)</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> stock = <span class="keyword">new</span> getStock(<span class="string">'NBA'</span>);</div></pre></td></tr></table></figure></p>
+<h4 id="for-of循环"><a href="#for-of循环" class="headerlink" title="for of循环"></a><code>for of</code>循环</h4><p><code>for of</code>跟<code>for in</code>循环一样，只不过不会循环自写属性。</p>
+<h3 id="面向对象特性"><a href="#面向对象特性" class="headerlink" title="面向对象特性"></a>面向对象特性</h3><h4 id="类（class）"><a href="#类（class）" class="headerlink" title="类（class）"></a>类（<code>class</code>）</h4><p>类是<code>TypeScript</code>的核心，使用<code>TypeScript</code>开发时，大部分代码都是写在类里面的。<br><figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> Person&#123;</div><div class="line">    name: <span class="string">'lin'</span>;</div><div class="line">    eat() &#123;</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">'eat'</span>)</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> p1 = <span class="keyword">new</span> Person();</div><div class="line"><span class="built_in">console</span>.log(p1.name = <span class="string">'lin'</span>);</div><div class="line">p1.eat();</div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>访问控制符，控制类的属性和方法是否可以在类的外部访问。默认<code>public</code>，<code>private</code> 只有在类的内部可以访问。<code>protected</code>受保护的，可以在类的内部和他的子类访问，在类的外部也不能访问。<br><figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> Person&#123;</div><div class="line">    <span class="keyword">private</span> name = <span class="string">'lin'</span>;</div><div class="line">    eat() &#123;</div><div class="line">        <span class="built_in">console</span>.log(name)</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+</blockquote>
+<h4 id="类的构造函数"><a href="#类的构造函数" class="headerlink" title="类的构造函数"></a>类的构造函数</h4><p>关键字<code>constructork</code><br><figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> Person&#123;</div><div class="line">	<span class="keyword">constructor</span>(<span class="params"></span>)&#123;</div><div class="line">		<span class="built_in">console</span>.log(<span class="string">'lin'</span>)</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> p1 = <span class="keyword">new</span> Person();</div></pre></td></tr></table></figure></p>
+<blockquote>
+<p><code>constructor</code>方法只有在类被实例化（<code>new</code>）的时候才会被调用，而且只被调用一次。<code>constructor</code>不能在外边调用。<br><figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> Person&#123;</div><div class="line">	<span class="keyword">constructor</span>(<span class="params">name: <span class="built_in">string</span></span>)&#123;</div><div class="line">        <span class="keyword">this</span>.name = name;</div><div class="line">    &#125;</div><div class="line">    name;</div><div class="line">    eat() &#123;</div><div class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.name);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> p1 = <span class="keyword">new</span> Person(<span class="string">'lin'</span>);</div><div class="line">p1.eat();</div></pre></td></tr></table></figure></p>
+</blockquote>
+<p>简化<br><figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> Person&#123;</div><div class="line">	<span class="keyword">constructor</span>(<span class="params"><span class="keyword">public</span> name: <span class="built_in">string</span></span>)&#123; <span class="comment">//明确声明public</span></div><div class="line">        </div><div class="line">    &#125;</div><div class="line">    eat() &#123;</div><div class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.name);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> p1 = <span class="keyword">new</span> Person(<span class="string">'lin'</span>);</div><div class="line">p1.eat();</div></pre></td></tr></table></figure></p>
+<h4 id="类的继承"><a href="#类的继承" class="headerlink" title="类的继承"></a>类的继承</h4><p><code>extends</code>用来声明类的继承关系，<code>super</code>用来调用父类的构造函数和方法。<br><figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> Person&#123;</div><div class="line">	<span class="keyword">constructor</span>(<span class="params">name: <span class="built_in">string</span></span>)&#123;</div><div class="line">        <span class="keyword">this</span>.name = name;</div><div class="line">    &#125;</div><div class="line">    name;</div><div class="line">    eat() &#123;</div><div class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.name);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">class</span> Employee <span class="keyword">extends</span> Person&#123;</div><div class="line">    code: <span class="built_in">string</span>;</div><div class="line">    work() &#123;</div><div class="line">        </div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> p1 = <span class="keyword">new</span> Person(<span class="string">'lin'</span>);</div><div class="line">p1.eat();</div><div class="line"><span class="keyword">var</span> e1 = <span class="keyword">new</span> Employee(<span class="string">'name '</span>)</div><div class="line">e1.eat();</div><div class="line">e1.work();</div></pre></td></tr></table></figure></p>
+<p><code>super</code>第一个用法是用来调用父类的构造函数<br><figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> Person&#123;</div><div class="line">	<span class="keyword">constructor</span>(<span class="params">name: <span class="built_in">string</span></span>)&#123;</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">'lin'</span>);</div><div class="line">    &#125;</div><div class="line">    name;</div><div class="line">    eat() &#123;</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">'eating'</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">class</span> Employee <span class="keyword">extends</span> Person&#123;</div><div class="line">    <span class="keyword">constructor</span>(<span class="params">name: <span class="built_in">string</span>, code: <span class="built_in">string</span></span>) &#123;</div><div class="line">        <span class="keyword">super</span>(name);<span class="comment">//子类的构造函数必须继承父类的构造函数</span></div><div class="line">        <span class="built_in">console</span>.log(<span class="string">'alin'</span>)</div><div class="line">        <span class="keyword">this</span>.code = code;</div><div class="line">    &#125;</div><div class="line">    code: <span class="built_in">string</span>;</div><div class="line">    work() &#123;</div><div class="line">        <span class="keyword">super</span>.eat();</div><div class="line">        <span class="keyword">this</span>.doWork();</div><div class="line">    &#125;</div><div class="line">    doWork() &#123;</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">'working'</span>)</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> p1 = <span class="keyword">new</span> Person(<span class="string">'lin'</span>);</div><div class="line">p1.eat();</div><div class="line"><span class="keyword">var</span> e1 = <span class="keyword">new</span> Employee(<span class="string">'name '</span>, <span class="string">'1'</span>)</div><div class="line">e1.eat();</div><div class="line">e1.work();</div></pre></td></tr></table></figure></p>
+<h4 id="泛型（generic）"><a href="#泛型（generic）" class="headerlink" title="泛型（generic）"></a>泛型（generic）</h4><p>参数化的类型，一般来限制集合的内容。<br><figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> Person&#123;</div><div class="line">	<span class="keyword">constructor</span>(<span class="params">name: <span class="built_in">string</span></span>)&#123;</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">'lin'</span>);</div><div class="line">    &#125;</div><div class="line">    name;</div><div class="line">    eat() &#123;</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">'eating'</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">class</span> Employee <span class="keyword">extends</span> Person&#123;</div><div class="line">    <span class="keyword">constructor</span>(<span class="params">name: <span class="built_in">string</span>, code: <span class="built_in">string</span></span>) &#123;</div><div class="line">        <span class="keyword">super</span>(name);<span class="comment">//子类的构造函数必须继承父类的构造函数</span></div><div class="line">        <span class="built_in">console</span>.log(<span class="string">'alin'</span>)</div><div class="line">        <span class="keyword">this</span>.code = code;</div><div class="line">    &#125;</div><div class="line">    code: <span class="built_in">string</span>;</div><div class="line">    work() &#123;</div><div class="line">        <span class="keyword">super</span>.eat();</div><div class="line">        <span class="keyword">this</span>.doWork();</div><div class="line">    &#125;</div><div class="line">    doWork() &#123;</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">'working'</span>)</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="comment">// var p1 = new Person('lin');</span></div><div class="line"><span class="comment">// p1.eat();</span></div><div class="line"><span class="comment">// var e1 = new Employee('name ', '1')</span></div><div class="line"><span class="comment">// e1.eat();</span></div><div class="line"><span class="comment">// e1.work();</span></div><div class="line"><span class="keyword">var</span> workers: <span class="built_in">Array</span>&lt;Person&gt; = [];<span class="comment">// 用 &lt;&gt; 括起来的类型person 就是数组的泛型 规定数组里只能放person</span></div><div class="line">workers[<span class="number">0</span>] = <span class="keyword">new</span> Person(<span class="string">'linlin'</span>);</div><div class="line">workers[<span class="number">1</span>] = <span class="keyword">new</span> Employee(<span class="string">'alin'</span>,<span class="string">'2'</span>);</div></pre></td></tr></table></figure></p>
+<h4 id="接口（Interface）"><a href="#接口（Interface）" class="headerlink" title="接口（Interface）"></a>接口（Interface）</h4><p>用来建立某种代码约定，使得其他开发者在调用某个方法或者创建新的类时必须遵循接口所定义的代码约定。声明接口<code>interface</code>，<code>implements</code><br>当接口用做方法的参数的类型声明时，当你在调用这个方法的时候，<code>TypeScript</code>会检查传入的参数是否满足接口所声明的所有属性。<br><figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">interface</span> Iperson&#123;</div><div class="line">    name: <span class="built_in">string</span>;</div><div class="line">    age: <span class="built_in">number</span>;</div><div class="line">&#125;</div><div class="line"><span class="keyword">class</span> Person&#123;</div><div class="line">    <span class="keyword">constructor</span>(<span class="params"><span class="keyword">public</span> config: Iperson</span>) &#123;</div><div class="line">        </div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> p1 = <span class="keyword">new</span> Person(&#123;</div><div class="line">    name: <span class="string">'lin'</span>,</div><div class="line">    age: <span class="number">18</span></div><div class="line">&#125;);<span class="comment">//实例化的时候必须传一个对象进去</span></div></pre></td></tr></table></figure></p>
+<p>用接口来声明方法<br><figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">interface</span> Anmial&#123;</div><div class="line">    eat();</div><div class="line">&#125;</div><div class="line"><span class="keyword">class</span> Sheep <span class="keyword">implements</span> Anmial&#123;</div><div class="line">    eat() &#123; </div><div class="line">        <span class="built_in">console</span>.log(<span class="string">'eat'</span>)</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">class</span> TigerTiger  <span class="keyword">implements</span> Anmial&#123;</div><div class="line">    eat() &#123; </div><div class="line">        <span class="built_in">console</span>.log(<span class="string">'eat'</span>)</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h4 id="模块"><a href="#模块" class="headerlink" title="模块"></a>模块</h4><p>模块可以帮助开发者将代码分割为可重用的单元。开发者可以自己决定将模块中的哪些资源（类、方法、变量）暴露出去供外部使用，哪些资源只能在模块内使用。<br>新建两个文件<code>a.ts</code> <code>b.ts</code><br><code>a.ts</code><br><figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">export</span>  <span class="keyword">var</span> prop1; <span class="comment">//暴露</span></div><div class="line"><span class="keyword">var</span> prop2; <span class="comment">//不暴露</span></div><div class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">func1</span>(<span class="params"></span>) </span>&#123;</div><div class="line"></div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">func2</span>(<span class="params"></span>) </span>&#123;</div><div class="line"></div><div class="line">&#125;</div><div class="line"><span class="keyword">export</span>  <span class="keyword">class</span> Class1&#123;</div><div class="line"></div><div class="line">&#125;</div><div class="line"><span class="keyword">class</span> Class2&#123;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><code>b.ts</code><br><figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123;prop1, Class1&#125; <span class="keyword">from</span> <span class="string">"./a"</span>;</div><div class="line"><span class="built_in">console</span>.log(prop1); <span class="comment">// a.ts没有暴露的不可以在 b.ts中引用</span></div><div class="line">func1();</div><div class="line"><span class="keyword">new</span> Class1();</div></pre></td></tr></table></figure></p>
+<h4 id="注解（annotation）"><a href="#注解（annotation）" class="headerlink" title="注解（annotation）"></a>注解（annotation）</h4><p>注解为程序的元素（类、方法、变量）加上更直观明了的说明，这些说明信息与程序的业务逻辑无关，而是供特定的工具或框架使用的。<br><figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span>  &#123; Component &#125; <span class="keyword">from</span>  <span class="string">'@angular/core'</span>;</div><div class="line"><span class="meta">@Component</span>(&#123;</div><div class="line">    selector: <span class="string">'app-root'</span>,</div><div class="line">    templateUrl: <span class="string">'./app.componern.html'</span>, <span class="comment">//告诉angular框架引用这个文件。</span></div><div class="line">    styleUrls: <span class="string">'./app.componern.css'</span>,</div><div class="line">&#125;)</div><div class="line"><span class="keyword">export</span>  <span class="keyword">class</span> AppComonent&#123;</div><div class="line">    title = <span class="string">'app Works'</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h4 id="类型定义文件（-d-ts）"><a href="#类型定义文件（-d-ts）" class="headerlink" title="类型定义文件（*.d.ts）"></a>类型定义文件（*.d.ts）</h4><p>类型定义文件用来帮助开发者在<code>TypeScript</code>中使用已有的<code>JavaScript</code>工具包，如：<code>JQuery</code>。<br>有一个工具便于大家使用类型定义文件-<a href="https://github.com/typings/typings" target="_blank" rel="external">Typings</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/TypeScript/" rel="tag"># TypeScript</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/05/12/机器猫/" rel="next" title="HTML5 Canvas 机器猫效果">
+                <i class="fa fa-chevron-left"></i> HTML5 Canvas 机器猫效果
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="passby" />
+          <p class="site-author-name" itemprop="name">passby</p>
+          <p class="site-description motion-element" itemprop="description">A man living in the word with his power</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">16</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/jiangxiaolin1995" target="_blank" title="github">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/2908142897/profile?topnav=1&wvr=6" target="_blank" title="weibo">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://github.com/" title="github" target="_blank">github</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+  <div class="widget-wrap">
+    <h3 class="widget-title"></h3>
+    <div class="widget">
+     
+    </div>
+  </div>
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#字符串新特性"><span class="nav-number">1.</span> <span class="nav-text">字符串新特性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#多行字符串"><span class="nav-number">1.1.</span> <span class="nav-text">多行字符串</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#字符串模板"><span class="nav-number">1.2.</span> <span class="nav-text">字符串模板</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#自动拆分字符串"><span class="nav-number">1.3.</span> <span class="nav-text">自动拆分字符串</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参数新特性"><span class="nav-number">2.</span> <span class="nav-text">参数新特性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#参数类型"><span class="nav-number">2.1.</span> <span class="nav-text">参数类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#默认参数"><span class="nav-number">2.2.</span> <span class="nav-text">默认参数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#可选参数"><span class="nav-number">2.3.</span> <span class="nav-text">可选参数</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数新特性"><span class="nav-number">3.</span> <span class="nav-text">函数新特性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Rest-and-Spread操作符"><span class="nav-number">3.1.</span> <span class="nav-text">Rest and Spread操作符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#generator函数"><span class="nav-number">3.2.</span> <span class="nav-text">generator函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#结构表达式"><span class="nav-number">3.3.</span> <span class="nav-text">结构表达式</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#如何取一个嵌套的属性"><span class="nav-number">3.3.1.</span> <span class="nav-text">如何取一个嵌套的属性</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#基于数组的解构表达式"><span class="nav-number">3.3.2.</span> <span class="nav-text">基于数组的解构表达式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#把解构表达式作为方法的参数"><span class="nav-number">3.3.3.</span> <span class="nav-text">把解构表达式作为方法的参数</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#箭头表达式"><span class="nav-number">4.</span> <span class="nav-text">箭头表达式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#for-of循环"><span class="nav-number">4.1.</span> <span class="nav-text">for of循环</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#面向对象特性"><span class="nav-number">5.</span> <span class="nav-text">面向对象特性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#类（class）"><span class="nav-number">5.1.</span> <span class="nav-text">类（class）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#类的构造函数"><span class="nav-number">5.2.</span> <span class="nav-text">类的构造函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#类的继承"><span class="nav-number">5.3.</span> <span class="nav-text">类的继承</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#泛型（generic）"><span class="nav-number">5.4.</span> <span class="nav-text">泛型（generic）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#接口（Interface）"><span class="nav-number">5.5.</span> <span class="nav-text">接口（Interface）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#模块"><span class="nav-number">5.6.</span> <span class="nav-text">模块</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#注解（annotation）"><span class="nav-number">5.7.</span> <span class="nav-text">注解（annotation）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#类型定义文件（-d-ts）"><span class="nav-number">5.8.</span> <span class="nav-text">类型定义文件（*.d.ts）</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">passby</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+  
+</body>
+</html>
