@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="NexT,Canvas,Hexo," />
+  <meta name="keywords" content="vue,vue-router," />
 
 
 
@@ -86,17 +86,17 @@
 
 
 
-<meta name="description" content="最经发现很多博客主题有很炫酷的Canvas效果，查了一下，最新的NexT主题支持一个叫canvas-nest效果的背景特效，接下来教大家如何配置。">
-<meta name="keywords" content="NexT,Canvas,Hexo">
+<meta name="description" content="vue-router 2.0 的变化 API 的变化 由 vue-router 1.0 的router.go()改为router.push()，使用router.push()设置默认路由。 新的router.go类似window.history.go()：接受一个数值作为参数在历史栈中导航 新增的方法 router.back() router.forward()路由配置   所有路由配置都通过一个">
+<meta name="keywords" content="vue,vue-router">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Next Canvas 背景">
-<meta property="og:url" content="http://yoursite.com/2017/03/04/Next Canvas 背景/index.html">
+<meta property="og:title" content="vue-router（二）：实例化一个简单地">
+<meta property="og:url" content="http://yoursite.com/2017/06/06/vue-router（二）-API 的变化/index.html">
 <meta property="og:site_name" content="passby">
-<meta property="og:description" content="最经发现很多博客主题有很炫酷的Canvas效果，查了一下，最新的NexT主题支持一个叫canvas-nest效果的背景特效，接下来教大家如何配置。">
-<meta property="og:updated_time" content="2017-05-14T05:27:26.282Z">
+<meta property="og:description" content="vue-router 2.0 的变化 API 的变化 由 vue-router 1.0 的router.go()改为router.push()，使用router.push()设置默认路由。 新的router.go类似window.history.go()：接受一个数值作为参数在历史栈中导航 新增的方法 router.back() router.forward()路由配置   所有路由配置都通过一个">
+<meta property="og:updated_time" content="2017-06-06T13:50:21.097Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Next Canvas 背景">
-<meta name="twitter:description" content="最经发现很多博客主题有很炫酷的Canvas效果，查了一下，最新的NexT主题支持一个叫canvas-nest效果的背景特效，接下来教大家如何配置。">
+<meta name="twitter:title" content="vue-router（二）：实例化一个简单地">
+<meta name="twitter:description" content="vue-router 2.0 的变化 API 的变化 由 vue-router 1.0 的router.go()改为router.push()，使用router.push()设置默认路由。 新的router.go类似window.history.go()：接受一个数值作为参数在历史栈中导航 新增的方法 router.back() router.forward()路由配置   所有路由配置都通过一个">
 
 
 
@@ -124,13 +124,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/03/04/Next Canvas 背景/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/06/06/vue-router（二）-API 的变化/"/>
 
 
 
 
 
-  <title> Next Canvas 背景 | passby </title>
+  <title> vue-router（二）：实例化一个简单地 | passby </title>
  
 </head>
 
@@ -252,7 +252,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/04/Next Canvas 背景/">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/06/vue-router（二）-API 的变化/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="passby">
@@ -276,7 +276,7 @@
             
             
               
-                Next Canvas 背景
+                vue-router（二）：实例化一个简单地
               
             
           </h1>
@@ -289,8 +289,8 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-04T07:33:23+08:00">
-                2017-03-04
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-06T21:50:34+08:00">
+                2017-06-06
               </time>
             
 
@@ -325,17 +325,53 @@
       
 
       
-        <p>最经发现很多博客主题有很炫酷的Canvas效果，查了一下，最新的NexT主题支持一个叫<code>canvas-nest</code>效果的背景特效，接下来教大家如何配置。<br><a id="more"></a></p>
-<h3 id="修改-layout-swig"><a href="#修改-layout-swig" class="headerlink" title="修改_layout.swig"></a>修改<code>_layout.swig</code></h3><p>打开 <code>next/layout/_layout.swig</code><br><strong>在 &lt; /body&gt;之前添加代码(注意不要放在&lt; /head&gt;的后面)</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&#123;% <span class="keyword">if</span> theme.canvas_nest %&#125;</div><div class="line">  &lt;script type=<span class="string">"text/javascript"</span> src=<span class="string">"//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"</span>&gt;&lt;/script&gt;</div><div class="line">  &#123;% endif %&#125;</div></pre></td></tr></table></figure></p>
-<h3 id="接下来修改修改配置文件"><a href="#接下来修改修改配置文件" class="headerlink" title="接下来修改修改配置文件"></a>接下来修改修改配置文件</h3><p>打开 <code>/next/_config.yml</code>,在里面添加如下代码(可以放在最后面)<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"># --------------------------------------------------------------</div><div class="line"># background settings</div><div class="line"># --------------------------------------------------------------</div><div class="line"># add canvas-nest effect</div><div class="line"># see detail from https://github.com/hustcc/canvas-nest.js</div><div class="line">canvas_nest: true</div></pre></td></tr></table></figure></p>
-<p>到此就结束了，运行 <code>hexo clean</code>，然后运行 <code>hexo g</code>,然后运行 <code>hexo s</code>，最后打开浏览器在浏览器的地址栏输入 <code>localhost:4000</code> 就能看到效果了\（￣︶￣）/</p>
-<h3 id="修改Canvas样式"><a href="#修改Canvas样式" class="headerlink" title="修改Canvas样式"></a>修改Canvas样式</h3><p>把上一步在 <code>_layout.swig</code>中添加的代码改为：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&#123;% <span class="keyword">if</span> theme.canvas_nest %&#125;</div><div class="line">&lt;script type=<span class="string">"text/javascript"</span></div><div class="line">color=<span class="string">"0,0,255"</span> opacity=<span class="string">'0.7'</span> zIndex=<span class="string">"-2"</span> count=<span class="string">"99"</span> src=<span class="string">"//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"</span>&gt;&lt;/script&gt;</div><div class="line">&#123;% endif %&#125;</div></pre></td></tr></table></figure></p>
-<h4 id="配置项说明"><a href="#配置项说明" class="headerlink" title="配置项说明"></a>配置项说明</h4><ul>
-<li>color ：线条颜色, 默认: ‘0,0,0’；三个数字分别为(R,G,B)</li>
-<li>opacity: 线条透明度（0~1）, 默认: 0.5</li>
-<li>count: 线条的总数量, 默认: 150</li>
-<li>zIndex: 背景的z-index属性，css属性用于控制所在层的位置, 默认: -1</li>
+        <p>vue-router 2.0 的变化</p>
+<h4 id="API-的变化"><a href="#API-的变化" class="headerlink" title="API 的变化"></a>API 的变化</h4><ul>
+<li>由 <strong>vue-router 1.0</strong> 的<code>router.go()</code>改为<code>router.push()</code>，使用<code>router.push()</code>设置默认路由。</li>
+<li>新的<code>router.go</code>类似<code>window.history.go()</code>：接受一个数值作为参数在历史栈中导航</li>
+<li>新增的方法<ul>
+<li>router.back()</li>
+<li>router.forward()<h4 id="路由配置"><a href="#路由配置" class="headerlink" title="路由配置"></a>路由配置</h4></li>
 </ul>
+</li>
+<li>所有路由配置都通过一个单独的对象传到Router的构造函数。</li>
+<li>作废了一些配置项，修改了一些配置项，具体参考<a href="https://github.com/vuejs/vue-router/blob/43183911dedfbb30ebacccf2d76ced74d998448a/flow/declarations.js#L8-L16" target="_blank" rel="external">可用配置选项</a></li>
+<li><code>routes</code> 选项取代了 <code>router.map()</code>。此外，路由配置现在用数组而不是用对象哈希表来作为数据结构。这保证了一致的匹配次序（对象键值枚举的次序是依赖浏览器的实现的）。<br><strong>以下的路由器实例配置选项被作废了：</strong></li>
+<li><code>history</code>被<code>made</code>代替</li>
+<li><code>abstrat</code>被<code>made</code>代替</li>
+<li><code>root</code>被<code>base</code>代替</li>
+<li><code>saveScrollPosition</code>被<code>scrollBehavior</code></li>
+<li><code>hashbang</code>（因为<code>hashbang</code>在 Google 爬站的时候不在需要，所以移除）</li>
+<li><code>transitionOnLoad</code> (因为 Vue 2.0 已经有显式的视觉表现过渡动画控制，所以移除)</li>
+<li><code>suppressTransitionError</code> (因为钩子函数的系统的简化而移除)<br><strong>新的<code>made</code>选项取值为</strong>：</li>
+<li><code>abstract</code></li>
+<li><code>hash</code> 默认值</li>
+<li><code>history</code><br>在不支持 <code>history.pushState</code> 的浏览器中, 路由器会自动回退为 <code>hash</code> 模式。<br><strong>已经作废的方法</strong></li>
+<li><code>router.map</code>被 <code>routers</code>代替</li>
+<li><code>router.beforeEach</code>被<code>beforeEach</code>代替，不过在<strong>beta2</strong>版本中有修改，见下面。</li>
+<li><code>router，afterEach</code>被<code>afterEach</code>代替，不过在<strong>beta2</strong>版本中有修改，见下面。</li>
+<li><code>router.redirect</code> (现在可以在 <code>routes</code> 中直接声明, 参见<a href="https://github.com/vuejs/vue-router/blob/43183911dedfbb30ebacccf2d76ced74d998448a/examples/redirect/app.js#L13-L39" target="_blank" rel="external">demo</a>)</li>
+<li><code>router.alias</code> (现在可以在 <code>routes</code> 配置中直接声明, 参见<a href="https://github.com/vuejs/vue-router/blob/43183911dedfbb30ebacccf2d76ced74d998448a/examples/route-alias/app.js#L11-L26" target="_blank" rel="external">demo</a>)<br><strong>Beta 2</strong> 中，<code>beforeEach</code> 和 <code>afterEach</code> 又被改回成为 <code>router</code>的实例方法。作者说是这可以让插件和模块更加方便的在<code>router</code>实例创建后增加<code>hooks</code>。<h4 id="导航钩子函数"><a href="#导航钩子函数" class="headerlink" title="导航钩子函数"></a>导航钩子函数</h4>钩子系统被极大简化，所有0.7的迁移钩子都作废了，下面是替代方案：</li>
+<li>使用组件自身的生命周期钩子函数来替代<code>activate</code> 和 <code>deactivate</code></li>
+<li>在<code>$router</code> 上使用 <code>watcher</code> 来响应路由改变 ( 比如基于新的路由参数获取数据 <a href="https://github.com/vuejs/vue-router/tree/next/examples/data-fetching" target="_blank" rel="external">demo</a>)</li>
+<li><code>canActivate</code> 可以被<code>router</code> 的配置中的 <code>beforeEnter</code> 中实现 <a href="https://github.com/vuejs/vue-router/blob/43183911dedfbb30ebacccf2d76ced74d998448a/examples/navigation-guards/app.js#L49" target="_blank" rel="external">demo</a></li>
+<li><code>canDeactivate</code> 已经被 <code>beforeRouteLeave</code> 取代, 后者在一个组件的根级定义中指定。这个钩子函数在调用时是将组件的实例作为其上下文的。<a href="https://github.com/vuejs/vue-router/blob/43183911dedfbb30ebacccf2d76ced74d998448a/examples/navigation-guards/app.js#L35-L38" target="_blank" rel="external">demo</a></li>
+<li><code>canReuse</code> 已经被移除，因其容易混淆且很少被用到。<br>此外，在2.0版本中所有的钩子函数都有相同简洁的签名：<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">guard (toRoute, redirect, next) &#123;</div><div class="line">  <span class="comment">// call redirect to redirect to another route</span></div><div class="line">  <span class="comment">// call next to confirm current route</span></div><div class="line">  <span class="comment">// or do nothing to cancel the navigation</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>这些函数也不再支持返回 Promises。</p>
+<p>####　链接（Links）<br>说说一个很大的变化，也是最先知道的变化。<br><code>v-link</code> 指令被 <code>&lt;router-link&gt;</code> 组件替代。 这个组件接受以下属性参数:</p>
+<ul>
+<li><code>to</code>: 一个路径字符串, 或者一个 <code>Location Descriptor</code> 对象。</li>
+<li><code>tag</code>: 渲染为的 <code>html</code> 元素类型，默认是<code>&lt;a&gt;</code>。</li>
+<li><code>exact</code>: 用于控制当前激活项的匹配行为（严格匹配或者贪婪匹配）.</li>
+<li><code>append</code>: 控制相对链接路径的追加方式</li>
+<li><code>replace</code>: 替代而不是作为历史条目压榨你</li>
+<li><code>active-class</code>: 当链接项激活时增加的 CSS 样式<br>这里有个 复杂的例子 展示了<code>&lt;router-link&gt;</code>的用法。<h4 id="命名视图-Named-Views"><a href="#命名视图-Named-Views" class="headerlink" title="命名视图 (Named Views)"></a>命名视图 (Named Views)</h4>单个路由现在可以映射到多个命名组件。这些组件将会在渲染在对应命名的多个 <code>&lt;router-view&gt;</code>中。 <a href="https://github.com/vuejs/vue-router/blob/43183911dedfbb30ebacccf2d76ced74d998448a/examples/named-views/app.js" target="_blank" rel="external">Demo</a><br>(译者注）这个功能很赞，提供了一种新的用多个组件组成页面结构的方法，同时又不增加组件之间的耦合。<h4 id="滚动行为（Scroll-Behavior）"><a href="#滚动行为（Scroll-Behavior）" class="headerlink" title="滚动行为（Scroll Behavior）"></a>滚动行为（Scroll Behavior）</h4><code>scrollBehavior</code> 选项接受一个函数，返回在路由导航时控制页面如何滚动的规则。你可以代码控制是否要滚动的页面顶部、书签或者在状态中保存的位置。<a href="https://github.com/vuejs/vue-router/blob/43183911dedfbb30ebacccf2d76ced74d998448a/examples/scroll-behavior/app.js#L18-L38" target="_blank" rel="external">Demo</a></li>
+</ul>
+<p><strong>Beta2</strong> 版本中又对 <code>scrollBehavior</code> 做了修改:</p>
+<p><strong>Beta1</strong> 中返回 <strong>{ hash: true }</strong> 来滚动到文档中的一个锚点，现在返回的是 <code>{ selector: route.hash }</code>。这也同时意味着你可以返回任意的 CSS 选择器，来匹配成要滚动到的目标。</p>
+<p>此外，你还可以返回<strong>{ selector: ‘…’, x: 0, y: 0 }</strong>，这会让路由器首先尝试滚动到匹配的元素，如果没有找到匹配元素，那就滚动到 x和y指定的位置。</p>
 
       
     </div>
@@ -359,11 +395,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/NexT/" rel="tag"># NexT</a>
+            <a href="/tags/vue/" rel="tag"># vue</a>
           
-            <a href="/tags/Canvas/" rel="tag"># Canvas</a>
-          
-            <a href="/tags/Hexo/" rel="tag"># Hexo</a>
+            <a href="/tags/vue-router/" rel="tag"># vue-router</a>
           
         </div>
       
@@ -372,8 +406,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/12/13/Gulp练习/" rel="next" title="Gulp 练习">
-                <i class="fa fa-chevron-left"></i> Gulp 练习
+              <a href="/2017/06/06/vue-router（一）-一个简单地vue-router实例/" rel="next" title="vue-router（一）：实例化一个简单地">
+                <i class="fa fa-chevron-left"></i> vue-router（一）：实例化一个简单地
               </a>
             
           </div>
@@ -381,10 +415,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/05/09/CSS3圆形扩散/" rel="prev" title="CSS3 圆圈自动扩散效果">
-                CSS3 圆圈自动扩散效果 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -552,7 +582,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#修改-layout-swig"><span class="nav-number">1.</span> <span class="nav-text">修改_layout.swig</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#接下来修改修改配置文件"><span class="nav-number">2.</span> <span class="nav-text">接下来修改修改配置文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改Canvas样式"><span class="nav-number">3.</span> <span class="nav-text">修改Canvas样式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#配置项说明"><span class="nav-number">3.1.</span> <span class="nav-text">配置项说明</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#API-的变化"><span class="nav-number">1.</span> <span class="nav-text">API 的变化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#路由配置"><span class="nav-number">2.</span> <span class="nav-text">路由配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#导航钩子函数"><span class="nav-number">3.</span> <span class="nav-text">导航钩子函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#命名视图-Named-Views"><span class="nav-number">4.</span> <span class="nav-text">命名视图 (Named Views)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#滚动行为（Scroll-Behavior）"><span class="nav-number">5.</span> <span class="nav-text">滚动行为（Scroll Behavior）</span></a></li></ol></div>
             
 
           </div>
