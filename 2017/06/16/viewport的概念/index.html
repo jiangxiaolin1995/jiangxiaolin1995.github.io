@@ -1,0 +1,706 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="viewport，移动端," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="passby" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="一、viewport的概念说到移动端，不得不说到 视图 的概念，也就是viewport，移动设备上的viewport就是设备屏幕上能用来显示我们网页的那一块区域（不是整个屏幕哦~），具体来讲呢，就是浏览器上用来显示网页的那部分区域，但viewport又不限于浏览器的可视区域的大小，它可能比浏览器的可视区域还要大，也可能比浏览器的可是区域要小。在默认情况下，移动设备上的viewport都是要大于浏览">
+<meta name="keywords" content="viewport，移动端">
+<meta property="og:type" content="article">
+<meta property="og:title" content="移动端 viewport 讲解">
+<meta property="og:url" content="http://yoursite.com/2017/06/16/viewport的概念/index.html">
+<meta property="og:site_name" content="passby">
+<meta property="og:description" content="一、viewport的概念说到移动端，不得不说到 视图 的概念，也就是viewport，移动设备上的viewport就是设备屏幕上能用来显示我们网页的那一块区域（不是整个屏幕哦~），具体来讲呢，就是浏览器上用来显示网页的那部分区域，但viewport又不限于浏览器的可视区域的大小，它可能比浏览器的可视区域还要大，也可能比浏览器的可是区域要小。在默认情况下，移动设备上的viewport都是要大于浏览">
+<meta property="og:image" content="http://i4.piimg.com/594295/6971653a02bba224.png">
+<meta property="og:image" content="http://i4.piimg.com/594295/d9ec3e5b823d7100.png">
+<meta property="og:image" content="http://i4.piimg.com/594295/e453c59d4c270d1e.png">
+<meta property="og:image" content="http://i4.piimg.com/594295/72fde53fe6cf98ad.png">
+<meta property="og:updated_time" content="2017-06-16T11:06:42.827Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="移动端 viewport 讲解">
+<meta name="twitter:description" content="一、viewport的概念说到移动端，不得不说到 视图 的概念，也就是viewport，移动设备上的viewport就是设备屏幕上能用来显示我们网页的那一块区域（不是整个屏幕哦~），具体来讲呢，就是浏览器上用来显示网页的那部分区域，但viewport又不限于浏览器的可视区域的大小，它可能比浏览器的可视区域还要大，也可能比浏览器的可是区域要小。在默认情况下，移动设备上的viewport都是要大于浏览">
+<meta name="twitter:image" content="http://i4.piimg.com/594295/6971653a02bba224.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/06/16/viewport的概念/"/>
+
+
+
+
+
+  <title> 移动端 viewport 讲解 | passby </title>
+ 
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">passby</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">生活、个人博客</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/16/viewport的概念/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="passby">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.gif">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="passby">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="passby" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                移动端 viewport 讲解
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-16T19:06:24+08:00">
+                2017-06-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h4 id="一、viewport的概念"><a href="#一、viewport的概念" class="headerlink" title="一、viewport的概念"></a>一、viewport的概念</h4><p>说到移动端，不得不说到 <strong>视图</strong> 的概念，也就是<code>viewport</code>，移动设备上的<code>viewport</code>就是设备屏幕上能用来显示我们网页的那一块区域（不是整个屏幕哦~），具体来讲呢，就是浏览器上用来显示网页的那部分区域，但<code>viewport</code>又不限于浏览器的可视区域的大小，它可能比浏览器的可视区域还要大，也可能比浏览器的可是区域要小。在默认情况下，移动设备上的<code>viewport</code>都是要大于浏览器可视区域的，这是因为考虑到移动设备的分辨率相对于桌面电脑来说都比较小，所以为了能在移动设备上正常显示那些传统的为桌面浏览器设计的网站，移动设备上的浏览器都会把自己默认的<code>viewport</code>设为<code>980px</code>或<code>1024px</code>（也可能是其它值，这个是由设备自己决定的），但带来的后果就是浏览器会出现横向滚动条，因为浏览器可视区域的宽度是比这个默认的<code>viewport</code>的宽度要小的。下图列出了一些设备上浏览器的默认<code>viewport</code>的宽度。<br><img src="http://i4.piimg.com/594295/6971653a02bba224.png" alt="viewport"></p>
+<p><center style="font-size:15px;">viewport<center></center></center></p>
+<p><hr></p>
+<h4 id="二、移动端-CSS-的像素问题"><a href="#二、移动端-CSS-的像素问题" class="headerlink" title="二、移动端 CSS 的像素问题"></a>二、移动端 <strong>CSS</strong> 的像素问题</h4><blockquote>
+<p><strong>CSS</strong>中的<code>1px</code>并不等于设备的<code>1px</code></p>
+</blockquote>
+<p>在<strong>CSS</strong>中我们一般使用<code>px</code>作为单位，在桌面浏览器中<strong><strong>CSS</strong></strong>的1个像素往往都是对应着电脑屏幕的<code>1</code>个物理像素，这可能会造成我们的一个错觉，那就是<strong>CSS</strong>中的像素就是设备的物理像素。但实际情况却并非如此，<strong>CSS</strong>中的像素只是一个抽象的单位，在不同的设备或不同的环境中，<strong>CSS</strong>中的<code>1px</code>所代表的设备物理像素是不同的。在为桌面浏览器设计的网页中，我们无需对这个斤斤计较，但在移动设备上，必须弄明白这点。在早先的移动设备中，屏幕像素密度都比较低，如<code>iphone3</code>，它的分辨率为<code>320x480</code>，在<code>iphone3</code>上，一个<strong>CSS</strong>像素确实是等于一个屏幕物理像素的。后来随着技术的发展，移动设备的屏幕像素密度越来越高，从<code>iphone4</code>开始，苹果公司便推出了所谓的<code>Retina</code>屏，分辨率提高了一倍，变成<code>640x960</code>，但屏幕尺寸却没变化，这就意味着同样大小的屏幕上，像素却多了一倍，这时，一个<strong>CSS</strong>像素是等于两个物理像素的（这个地方有点绕，仔细理解一下，原本同样<code>分辨率</code>同样大小的的屏幕可以装这么多东西，现在<code>分辨率</code>大了，而屏幕大小不变，所以就可以装下比原来更多的东西）。其他品牌的移动设备也是这个道理。例如安卓设备根据屏幕像素密度可分为<code>ldpi</code>、<code>mdpi</code>、<code>hdpi</code>、<code>xhdpi</code>等不同的等级，分辨率也是五花八门，安卓设备上的一个<strong>CSS</strong>像素相当于多少个屏幕物理像素，也因设备的不同而不同，没有一个定论。</p>
+<p>还有一个因素也会引起<strong>CSS</strong>中px的变化，那就是用户缩放。例如，当用户把页面放大一倍，那么<strong>CSS</strong>中1px所代表的物理像素也会增加一倍；反之把页面缩小一倍，<strong>CSS</strong>中1px所代表的物理像素也会减少一倍。关于这点，在文章后面的部分还会讲到。</p>
+<p>在移动端浏览器中以及某些桌面浏览器中，window对象有一个<code>devicePixelRatio</code>属性，它的官方的定义为：设备物理像素和设备独立像素的比例，也就是 <code>devicePixelRatio = 物理像素 / 独立像素</code>。<strong>CSS</strong>中的px就可以看做是设备的独立像素，所以通过devicePixelRatio，我们可以知道该设备上一个<strong>CSS</strong>像素代表多少个物理像素。例如，在<code>Retina</code>屏的<code>iphone</code>上，<code>devicePixelRatio</code>的值为<code>2</code>，也就是说<code>1</code>个<strong>CSS</strong>像素相当于<code>2</code>个物理像素。但是要注意的是，<code>devicePixelRatio</code>在不同的浏览器中还存在些许的兼容性问题，所以我们现在还并不能完全信赖这个东西，具体的情况可以看下<a href="http://www.quirksmode.org/blog/archives/2012/06/devicepixelrati.html" target="_blank" rel="external">这篇文章</a>。<br>devicePixelRatio的测试结果：<br><img src="http://i4.piimg.com/594295/d9ec3e5b823d7100.png" alt="viewport测试结果"></p>
+<p><center style="font-size:15px;">viewport测试结果<center></center></center></p>
+<p><hr></p>
+<h4 id="三、关于PPK大神的三个viewport的理论"><a href="#三、关于PPK大神的三个viewport的理论" class="headerlink" title="三、关于PPK大神的三个viewport的理论"></a>三、关于PPK大神的三个viewport的理论</h4><p>ppk大神对于移动设备上的viewport有着非常多的研究（<a href="http://www.quirksmode.org/mobile/viewports.html" target="_blank" rel="external">第一篇</a>，<a href="http://www.quirksmode.org/mobile/viewports2.html" target="_blank" rel="external">第二篇</a>，<a href="http://www.quirksmode.org/mobile/viewports3.html" target="_blank" rel="external">第三篇</a>），有兴趣的同学可以去看一下，本文中有很多数据和观点也是出自那里，也是目前网上关于<code>viewport</code>的讨论的论据。ppk认为，移动设备上有三个<code>viewport</code>。</p>
+<h5 id="layout-viewport"><a href="#layout-viewport" class="headerlink" title="layout viewport"></a>layout viewport</h5><p>首先，移动设备上的浏览器认为自己必须能让所有的网站都正常显示，即使是那些不是为移动设备设计的网站。但如果以浏览器的可视区域作为<code>viewport</code>的话，因为移动设备的屏幕都不是很宽，所以那些为桌面浏览器设计的网站放到移动设备上显示时，必然会因为移动设备的<code>viewport</code>太窄，而挤作一团，甚至布局什么的都会乱掉。也许有人会问，现在不是有很多手机分辨率都非常大吗，比如<code>768x1024</code>，或者<code>1080x1920</code>这样，那这样的手机用来显示为桌面浏览器设计的网站是没问题的吧？前面我们已经说了，<strong>CSS</strong>中的<code>1px</code>并不是代表屏幕上的<code>1px</code>，你分辨率越大，<strong>CSS</strong>中<code>1px</code>代表的物理像素就会越多，<code>devicePixelRatio</code>的值也越大，这很好理解，因为你分辨率增大了，但屏幕尺寸并没有变大多少，必须让<strong>CSS</strong>中的<code>1px</code>代表更多的物理像素，才能让<code>1px</code>的东西在屏幕上的大小与那些低分辨率的设备差不多，不然就会因为太小而看不清。所以在<code>1080x1920</code>这样的设备上，在默认情况下，也许你只要把一个div的宽度设为<code>300多px</code>（视<code>devicePixelRatio</code>的值而定），就是满屏的宽度了。回到正题上来，如果把移动设备上浏览器的可视区域设为viewport的话，某些网站就会因为<code>viewport</code>太窄而显示错乱，所以这些浏览器就决定默认情况下把<code>viewport</code>设为一个较宽的值，比如<code>980px</code>，这样的话即使是那些为桌面设计的网站也能在移动浏览器上正常显示了。ppk把这个浏览器默认的<code>viewport</code>叫做 <code>layout viewport</code>。这个<code>layout viewport</code>的宽度可以通过 <code>document.documentElement.clientWidth</code> 来获取。<br><img src="http://i4.piimg.com/594295/e453c59d4c270d1e.png" alt="layout viewport"></p>
+<h5 id="visual-viewport"><a href="#visual-viewport" class="headerlink" title="visual viewport"></a>visual viewport</h5><p>然而，<code>layout viewport</code> 的宽度是大于浏览器可视区域的宽度的，所以我们还需要一个<code>viewport</code>来代表浏览器可视区域的大小，ppk把这个viewport叫做 <code>visual viewport</code>。<code>visual viewport</code>的宽度可以通过 <code>window.innerWidth</code> 来获取。<br><img src="http://i4.piimg.com/594295/72fde53fe6cf98ad.png" alt="layout viewport"></p>
+<p>#####visual viewport<br>现在我们已经有两个<code>viewport</code>了：<code>layout viewport</code> 和 <code>visual viewport</code>。但浏览器觉得还不够，因为现在越来越多的网站都会为移动设备进行单独的设计，所以必须还要有一个能完美适配移动设备的<code>viewport</code>。所谓的完美适配指的是，首先不需要用户缩放和横向滚动条就能正常的查看网站的所有内容；第二，显示的文字的大小是合适，比如一段<code>14px</code>大小的文字，不会因为在一个高密度像素的屏幕里显示得太小而无法看清，理想的情况是这段<code>14px</code>的文字无论是在何种密度屏幕，何种分辨率下，显示出来的大小都是差不多的。当然，不只是文字，其他元素像图片什么的也是这个道理。ppk把这个<code>viewport</code>叫做 <code>ideal viewport</code>，也就是第三个<code>viewport</code>——移动设备的理想<code>viewport</code>。</p>
+<p><code>ideal viewport</code>并没有一个固定的尺寸，不同的设备拥有有不同的<code>ideal viewport</code>。所有的<code>iphone</code>的<code>ideal viewport</code>宽度都是<code>320px</code>，无论它的屏幕宽度是<code>320</code>还是<code>640</code>，也就是说，在<code>iphone</code>中，<strong>CSS</strong>中的<code>320px</code>就代表<code>iphone</code>屏幕的宽度。</p>
+<p>但是安卓设备就比较复杂了，有<code>320px</code>的，有<code>360px</code>的，有<code>384px</code>的等等，关于不同的设备<code>ideal viewport</code>的宽度都为多少，可以到去<a href="http://viewportsizes.com" target="_blank" rel="external">查看一下</a>，里面收集了众多设备的理想宽度。</p>
+<blockquote>
+<p>最后总结一下：<em>ppk</em>把移动设备上的<code>viewport</code>分为 <code>layout viewport</code> 、 <code>visual viewport</code> 和 <code>ideal viewport</code> 三类，其中的<code>ideal viewport</code>是最适合移动设备的<code>viewport</code>，<code>ideal viewport</code>的宽度等于移动设备的屏幕宽度，只要在css中把某一元素的宽度设为<code>ideal viewport</code>的宽度(单位用<code>px</code>)，那么这个元素的宽度就是设备屏幕的宽度了，也就是宽度为<code>100%</code>的效果。<code>ideal viewport</code> 的意义在于，无论在何种分辨率的屏幕下，那些针对<code>ideal viewport</code> 而设计的网站，不需要用户手动缩放，也不需要出现横向滚动条，都可以完美的呈现给用户。如果大家想对<code>viewport</code>深入了解，还是建议大家仔细阅读以下<em>ppk</em>的原文。</p>
+</blockquote>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/viewport，移动端/" rel="tag"># viewport，移动端</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/06/15/Gulp API 详解/" rel="next" title="Gulp API 讲解">
+                <i class="fa fa-chevron-left"></i> Gulp API 讲解
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="passby" />
+          <p class="site-author-name" itemprop="name">passby</p>
+          <p class="site-description motion-element" itemprop="description">A man living in the word with his power</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">20</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">19</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/jiangxiaolin1995" target="_blank" title="github">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/2908142897/profile?topnav=1&wvr=6" target="_blank" title="weibo">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://github.com/" title="github" target="_blank">github</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+  <div class="widget-wrap">
+    <h3 class="widget-title"></h3>
+    <div class="widget">
+     
+    </div>
+  </div>
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#一、viewport的概念"><span class="nav-number">1.</span> <span class="nav-text">一、viewport的概念</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二、移动端-CSS-的像素问题"><span class="nav-number">2.</span> <span class="nav-text">二、移动端 CSS 的像素问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#三、关于PPK大神的三个viewport的理论"><span class="nav-number">3.</span> <span class="nav-text">三、关于PPK大神的三个viewport的理论</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#layout-viewport"><span class="nav-number">3.1.</span> <span class="nav-text">layout viewport</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#visual-viewport"><span class="nav-number">3.2.</span> <span class="nav-text">visual viewport</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">passby</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+  
+</body>
+</html>
