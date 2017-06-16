@@ -1,0 +1,895 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="vue,vue-router," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="passby" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="vue-router 2.0 的变化 vue-router 2.0 相对1.0来说改动挺大，废弃了之前的标签写法，采用更加方便的写法。新API更符合Vue 2.0的思想。">
+<meta name="keywords" content="vue,vue-router">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vue-router（二）：vue-router 2.0 的API变化">
+<meta property="og:url" content="http://yoursite.com/year/06/06/vue-router（二）：API 的变化/index.html">
+<meta property="og:site_name" content="passby">
+<meta property="og:description" content="vue-router 2.0 的变化 vue-router 2.0 相对1.0来说改动挺大，废弃了之前的标签写法，采用更加方便的写法。新API更符合Vue 2.0的思想。">
+<meta property="og:updated_time" content="2017-06-16T12:17:40.178Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="vue-router（二）：vue-router 2.0 的API变化">
+<meta name="twitter:description" content="vue-router 2.0 的变化 vue-router 2.0 相对1.0来说改动挺大，废弃了之前的标签写法，采用更加方便的写法。新API更符合Vue 2.0的思想。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/year/06/06/vue-router（二）：API 的变化/"/>
+
+
+
+
+
+  <title> vue-router（二）：vue-router 2.0 的API变化 | passby </title>
+ 
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">passby</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">生活、个人博客</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/year/06/06/vue-router（二）：API 的变化/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="passby">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.gif">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="passby">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="passby" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                vue-router（二）：vue-router 2.0 的API变化
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-06T21:50:34+08:00">
+                2017-06-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+          
+          
+          
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>vue-router 2.0 的变化</p>
+<p>vue-router 2.0 相对1.0来说改动挺大，废弃了之前的标签写法，采用更加方便的写法。新<strong>API</strong>更符合<strong>Vue 2.0</strong>的思想。<br><a id="more"></a></p>
+<h4 id="API-的变化"><a href="#API-的变化" class="headerlink" title="API 的变化"></a>API 的变化</h4><ul>
+<li>由 <strong>vue-router 1.0</strong> 的<code>router.go()</code>改为<code>router.push()</code>，使用<code>router.push()</code>设置默认路由。</li>
+<li>新的<code>router.go</code>类似<code>window.history.go()</code>：接受一个数值作为参数在历史栈中导航</li>
+<li>新增的方法<ul>
+<li>router.back()</li>
+<li>router.forward()<h4 id="路由配置"><a href="#路由配置" class="headerlink" title="路由配置"></a>路由配置</h4></li>
+</ul>
+</li>
+<li>所有路由配置都通过一个单独的对象传到Router的构造函数。</li>
+<li>作废了一些配置项，修改了一些配置项，具体参考<a href="https://github.com/vuejs/vue-router/blob/43183911dedfbb30ebacccf2d76ced74d998448a/flow/declarations.js#L8-L16" target="_blank" rel="external">可用配置选项</a></li>
+<li><code>routes</code> 选项取代了 <code>router.map()</code>。此外，路由配置现在用数组而不是用对象哈希表来作为数据结构。这保证了一致的匹配次序（对象键值枚举的次序是依赖浏览器的实现的）。<br><strong>以下的路由器实例配置选项被作废了：</strong></li>
+<li><code>history</code>被<code>made</code>代替</li>
+<li><code>abstrat</code>被<code>made</code>代替</li>
+<li><code>root</code>被<code>base</code>代替</li>
+<li><code>saveScrollPosition</code>被<code>scrollBehavior</code></li>
+<li><code>hashbang</code>（因为<code>hashbang</code>在 Google 爬站的时候不在需要，所以移除）</li>
+<li><code>transitionOnLoad</code> (因为 Vue 2.0 已经有显式的视觉表现过渡动画控制，所以移除)</li>
+<li><code>suppressTransitionError</code> (因为钩子函数的系统的简化而移除)<br><strong>新的<code>made</code>选项取值为</strong>：</li>
+<li><code>abstract</code></li>
+<li><code>hash</code> 默认值</li>
+<li><code>history</code><br>在不支持 <code>history.pushState</code> 的浏览器中, 路由器会自动回退为 <code>hash</code> 模式。<br><strong>已经作废的方法</strong></li>
+<li><code>router.map</code>被 <code>routers</code>代替</li>
+<li><code>router.beforeEach</code>被<code>beforeEach</code>代替，不过在<strong>beta2</strong>版本中有修改，见下面。</li>
+<li><code>router，afterEach</code>被<code>afterEach</code>代替，不过在<strong>beta2</strong>版本中有修改，见下面。</li>
+<li><code>router.redirect</code> (现在可以在 <code>routes</code> 中直接声明, 参见<a href="https://github.com/vuejs/vue-router/blob/43183911dedfbb30ebacccf2d76ced74d998448a/examples/redirect/app.js#L13-L39" target="_blank" rel="external">demo</a>)</li>
+<li><code>router.alias</code> (现在可以在 <code>routes</code> 配置中直接声明, 参见<a href="https://github.com/vuejs/vue-router/blob/43183911dedfbb30ebacccf2d76ced74d998448a/examples/route-alias/app.js#L11-L26" target="_blank" rel="external">demo</a>)<br><strong>Beta 2</strong> 中，<code>beforeEach</code> 和 <code>afterEach</code> 又被改回成为 <code>router</code>的实例方法。作者说是这可以让插件和模块更加方便的在<code>router</code>实例创建后增加<code>hooks</code>。<h4 id="导航钩子函数"><a href="#导航钩子函数" class="headerlink" title="导航钩子函数"></a>导航钩子函数</h4>钩子系统被极大简化，所有0.7的迁移钩子都作废了，下面是替代方案：</li>
+<li>使用组件自身的生命周期钩子函数来替代<code>activate</code> 和 <code>deactivate</code></li>
+<li>在<code>$router</code> 上使用 <code>watcher</code> 来响应路由改变 ( 比如基于新的路由参数获取数据 <a href="https://github.com/vuejs/vue-router/tree/next/examples/data-fetching" target="_blank" rel="external">demo</a>)</li>
+<li><code>canActivate</code> 可以被<code>router</code> 的配置中的 <code>beforeEnter</code> 中实现 <a href="https://github.com/vuejs/vue-router/blob/43183911dedfbb30ebacccf2d76ced74d998448a/examples/navigation-guards/app.js#L49" target="_blank" rel="external">demo</a></li>
+<li><code>canDeactivate</code> 已经被 <code>beforeRouteLeave</code> 取代, 后者在一个组件的根级定义中指定。这个钩子函数在调用时是将组件的实例作为其上下文的。<a href="https://github.com/vuejs/vue-router/blob/43183911dedfbb30ebacccf2d76ced74d998448a/examples/navigation-guards/app.js#L35-L38" target="_blank" rel="external">demo</a></li>
+<li><code>canReuse</code> 已经被移除，因其容易混淆且很少被用到。<br>此外，在2.0版本中所有的钩子函数都有相同简洁的签名：<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">guard (toRoute, redirect, next) &#123;</div><div class="line">  <span class="comment">// call redirect to redirect to another route</span></div><div class="line">  <span class="comment">// call next to confirm current route</span></div><div class="line">  <span class="comment">// or do nothing to cancel the navigation</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>这些函数也不再支持返回 Promises。</p>
+<p>####　链接（Links）<br>说说一个很大的变化，也是最先知道的变化。<br><code>v-link</code> 指令被 <code>&lt;router-link&gt;</code> 组件替代。 这个组件接受以下属性参数:</p>
+<ul>
+<li><code>to</code>: 一个路径字符串, 或者一个 <code>Location Descriptor</code> 对象。</li>
+<li><code>tag</code>: 渲染为的 <code>html</code> 元素类型，默认是<code>&lt;a&gt;</code>。</li>
+<li><code>exact</code>: 用于控制当前激活项的匹配行为（严格匹配或者贪婪匹配）.</li>
+<li><code>append</code>: 控制相对链接路径的追加方式</li>
+<li><code>replace</code>: 替代而不是作为历史条目压榨你</li>
+<li><code>active-class</code>: 当链接项激活时增加的 CSS 样式<br>这里有个 复杂的例子 展示了<code>&lt;router-link&gt;</code>的用法。<h4 id="命名视图-Named-Views"><a href="#命名视图-Named-Views" class="headerlink" title="命名视图 (Named Views)"></a>命名视图 (Named Views)</h4>单个路由现在可以映射到多个命名组件。这些组件将会在渲染在对应命名的多个 <code>&lt;router-view&gt;</code>中。 <a href="https://github.com/vuejs/vue-router/blob/43183911dedfbb30ebacccf2d76ced74d998448a/examples/named-views/app.js" target="_blank" rel="external">Demo</a><br>(译者注）这个功能很赞，提供了一种新的用多个组件组成页面结构的方法，同时又不增加组件之间的耦合。<h4 id="滚动行为（Scroll-Behavior）"><a href="#滚动行为（Scroll-Behavior）" class="headerlink" title="滚动行为（Scroll Behavior）"></a>滚动行为（Scroll Behavior）</h4><code>scrollBehavior</code> 选项接受一个函数，返回在路由导航时控制页面如何滚动的规则。你可以代码控制是否要滚动的页面顶部、书签或者在状态中保存的位置。<a href="https://github.com/vuejs/vue-router/blob/43183911dedfbb30ebacccf2d76ced74d998448a/examples/scroll-behavior/app.js#L18-L38" target="_blank" rel="external">Demo</a></li>
+</ul>
+<p><strong>Beta2</strong> 版本中又对 <code>scrollBehavior</code> 做了修改:</p>
+<p><strong>Beta1</strong> 中返回 <strong>{ hash: true }</strong> 来滚动到文档中的一个锚点，现在返回的是 <code>{ selector: route.hash }</code>。这也同时意味着你可以返回任意的 CSS 选择器，来匹配成要滚动到的目标。</p>
+<p>此外，你还可以返回<strong>{ selector: ‘…’, x: 0, y: 0 }</strong>，这会让路由器首先尝试滚动到匹配的元素，如果没有找到匹配元素，那就滚动到 x和y指定的位置。</p>
+
+      
+    
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/vue/" rel="tag"># vue</a>
+          
+            <a href="/tags/vue-router/" rel="tag"># vue-router</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/year/06/06/vue-router（一）：一个简单地vue-router实例/" rel="next" title="vue-router（一）：实例化一个简单地vue-router">
+                <i class="fa fa-chevron-left"></i> vue-router（一）：实例化一个简单地vue-router
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/year/06/15/Gulp API 详解/" rel="prev" title="Gulp API 讲解">
+                Gulp API 讲解 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="passby" />
+          <p class="site-author-name" itemprop="name">passby</p>
+          <p class="site-description motion-element" itemprop="description">A man living in the word with his power</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">20</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">19</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/jiangxiaolin1995" target="_blank" title="github">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/2908142897/profile?topnav=1&wvr=6" target="_blank" title="weibo">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://github.com/" title="github" target="_blank">github</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+  <div class="widget-wrap">
+    <h3 class="widget-title"></h3>
+    <div class="widget">
+     
+    </div>
+  </div>
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#API-的变化"><span class="nav-number">1.</span> <span class="nav-text">API 的变化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#路由配置"><span class="nav-number">2.</span> <span class="nav-text">路由配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#导航钩子函数"><span class="nav-number">3.</span> <span class="nav-text">导航钩子函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#命名视图-Named-Views"><span class="nav-number">4.</span> <span class="nav-text">命名视图 (Named Views)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#滚动行为（Scroll-Behavior）"><span class="nav-number">5.</span> <span class="nav-text">滚动行为（Scroll Behavior）</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+<span id="busuanzi_container_site_pv">
+    本站总访问量<span id="busuanzi_value_site_pv"></span>次
+</span>
+<span id="busuanzi_container_page_pv">
+  本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+</span>
+<div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">passby</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  <script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+  
+  
+</body>
+</html>
