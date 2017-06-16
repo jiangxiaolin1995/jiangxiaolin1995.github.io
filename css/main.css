@@ -508,14 +508,14 @@ code {
 code {
   padding: 2px 4px;
   word-wrap: break-word;
-  color: #4d4d4c;
+  color: #c82829;
   background: #f7f7f7;
   border-radius: 3px;
   font-size: 13px;
 }
 pre code {
   padding: 0;
-  color: #4d4d4c;
+  color: #c82829;
   background: none;
   text-shadow: none;
 }
@@ -1680,7 +1680,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #bfa757;
+  background: #2dbb5e;
 }
 .links-of-blogroll {
   font-size: 13px;
