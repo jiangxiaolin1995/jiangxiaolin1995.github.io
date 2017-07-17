@@ -3,6 +3,29 @@
   
     
     <entry>
+      <title><![CDATA[初始化 ionic 项目报错：ionic cli 受限制]]></title>
+      <url>/year/07/17/error/</url>
+      <content type="html"><![CDATA[<blockquote>
+<p>You have no CLI project plugins installed. CLI functionality may be limited.</p>
+</blockquote>
+<p>就是这个问题，困扰了我一下午，不翻译了，大家的英语应该比我好，我就不班门弄斧了，直奔主题，查了谷歌、度娘都没有找到问题的解决方法，排名靠前的是<s>用管理员运行<strong>CMD</strong></s><code>这个方法是错误的，亲测不可以。</code></p>
+<blockquote>
+<p><strong>错误的原因就是你没有安装angular</strong><br>这个错误就这么简单，也不细说了，主要是没必要，搬砖去了。</p>
+</blockquote>
+]]></content>
+      
+        
+        <tags>
+            
+            <tag> 边框 </tag>
+            
+            <tag> ionic </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[移动端 viewport 讲解]]></title>
       <url>/year/06/16/viewport%E7%9A%84%E6%A6%82%E5%BF%B5/</url>
       <content type="html"><![CDATA[<h4 id="一、viewport的概念"><a href="#一、viewport的概念" class="headerlink" title="一、viewport的概念"></a>一、viewport的概念</h4><p>说到移动端，不得不说到 <strong>视图</strong> 的概念，也就是<code>viewport</code>，移动设备上的<code>viewport</code>就是设备屏幕上能用来显示我们网页的那一块区域（不是整个屏幕哦~），具体来讲呢，就是浏览器上用来显示网页的那部分区域，但<code>viewport</code>又不限于浏览器的可视区域的大小，它可能比浏览器的可视区域还要大，也可能比浏览器的可是区域要小。<a id="more"></a>在默认情况下，移动设备上的<code>viewport</code>都是要大于浏览器可视区域的，这是因为考虑到移动设备的分辨率相对于桌面电脑来说都比较小，所以为了能在移动设备上正常显示那些传统的为桌面浏览器设计的网站，移动设备上的浏览器都会把自己默认的<code>viewport</code>设为<code>980px</code>或<code>1024px</code>（也可能是其它值，这个是由设备自己决定的），但带来的后果就是浏览器会出现横向滚动条，因为浏览器可视区域的宽度是比这个默认的<code>viewport</code>的宽度要小的。下图列出了一些设备上浏览器的默认<code>viewport</code>的宽度。<br><img src="http://i4.piimg.com/594295/6971653a02bba224.png" alt="viewport"></p>
@@ -483,53 +506,6 @@
     </entry>
     
     <entry>
-      <title><![CDATA[单行居中显示文字，多行居左显示，最多两行超过用省略号结尾]]></title>
-      <url>/year/10/09/%E9%A6%96%E5%85%88%E6%98%AF%E5%8D%95%E8%A1%8C%E5%B1%85%E4%B8%AD%EF%BC%8C%E5%A4%9A%E8%A1%8C%E5%B1%85%E5%B7%A6/</url>
-      <content type="html"><![CDATA[<p>使用纯 CSS，完成单行文本居中显示文字，多行居左显示，最多两行超过用省略号结尾，效果如下：<br>不愿看长篇大论的可以先看看效果：<a href="https://codepen.io/jiangxiaolin1995/pen/qmYzdL" target="_blank" rel="external">-webkit- 内核下 Demo 戳我</a><br><a id="more"></a><br><img src="http://i2.muimg.com/594295/d0dceed9b6341400.png" alt="多行显示"><br>接下来就一步一步来实现这个效果。</p>
-<h5 id="首先是单行居中，多行居左"><a href="#首先是单行居中，多行居左" class="headerlink" title="首先是单行居中，多行居左"></a>首先是单行居中，多行居左</h5><p>居中需要用到 <code>text-align:center</code>，居左是默认值也就是<code>text-align:left</code>。如合让两者结合起来达到单行居中，多行居左呢？这就需要多一个标签，假设一开始我们定义如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">&lt;h2&gt;单行居中，多行居左&lt;/h2&gt;</div></pre></td></tr></table></figure>
-<p>现在，我们在 <code>h2</code> 中间，嵌套多一层标签 p：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;h2&gt;&lt;p&gt;单行居中，多行居左&lt;/p&gt;&lt;/h2&gt;</div></pre></td></tr></table></figure>
-<p>我们让内层 p 居左 text-align:left，外层 h2 居中 text-align:center，并且将 p 设置为 display:inline-block ，利用 inline-block 元素可以被父级 text-align:center 居中的特性，这样就可以实现单行居中，多行居左，CSS 如下：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">p</span> &#123;</div><div class="line">    <span class="attribute">display</span>: inline-block;</div><div class="line">    <span class="attribute">text-align</span>: left;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-tag">h2</span>&#123;</div><div class="line">    <span class="attribute">text-align</span>: center;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>得到的效果如下：<br><img src="http://i2.muimg.com/594295/5519fcaeada1dc34.png" alt="Markdown"></p>
-<h5 id="超出两行省略"><a href="#超出两行省略" class="headerlink" title="超出两行省略"></a>超出两行省略</h5><p>完成了第一步，接下来要实现的是超出两行显示省略符号。<br>多行省略是有专门的新 CSS 属性可以实现的，但是有些兼容性不大好。主要用到如下几个：</p>
-<ul>
-<li><code>display: -webkit-box;</code> // 设置display，将对象作为弹性伸缩盒子模型显示</li>
-<li><code>webkit-line-clamp: 2;</code> // 限制在一个块元素显示的文本的行数</li>
-<li><code>webkit-box-orient: vertical;</code> // 规定框的子元素应该被水平或垂直排列<br>上述 3 条样式配合 <code>overflow : hidden</code> 和 <code>text-overflow: ellipsis</code> 即可实现 <code>webkit</code> 内核下的多行省略。好，我们将上述说的一共 5 条样式添加给 p 元素<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">p</span> &#123;</div><div class="line">    <span class="attribute">display</span>: inline-block;</div><div class="line">    <span class="attribute">text-align</span>: left;</div><div class="line">    <span class="attribute">overflow </span>: hidden;</div><div class="line">    <span class="attribute">text-overflow</span>: ellipsis;</div><div class="line">    <span class="attribute">display</span>: -webkit-box;</div><div class="line">    <span class="attribute">-webkit-line-clamp</span>: <span class="number">2</span>;</div><div class="line">    <span class="attribute">-webkit-box-orient</span>: vertical;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-tag">h2</span>&#123;</div><div class="line">    <span class="attribute">text-align</span>: center;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>看看效果如下：<br><img src="http://i2.muimg.com/594295/47610dc1f7901281.png" alt="Markdown"><br>（在 -webkit- 内核浏览器下）发现，虽然超出两行的是被省略了，但是第一行也变回了居左，而没有居中。</p>
-<p>看回上面的 CSS 中的 p 元素，原因在于我们第一个设置的 <code>display: inline-block</code> ，被接下来设置的 <code>display: -webkit-box</code> 给覆盖掉了，所以不再是 <code>inline-block</code> 特性的内部 p 元素占据了一整行，也就自然而然的不再居中，而变成了正常的居左展示。</p>
-<p>记得上面我们解决单行居中，多行居左时的方法吗？上面我们添加多了一层标签解决了问题，这里我们再添加多一层标签，如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;h2&gt;&lt;p&gt;&lt;em&gt;单行居中，多行居左&lt;em&gt;&lt;/p&gt;&lt;/h2&gt;</div></pre></td></tr></table></figure>
-<p>这里，我们再添加一层 <code>em</code> 标签，接下来，</p>
-<ul>
-<li>设置 <code>em</code> 为 <code>display: -webkit-box</code></li>
-<li>设置 <code>p</code> 为 <code>inline-block</code></li>
-<li>设置 <code>h2</code> 为 <code>text-align: center</code><br>嘿！通过再设置多一层标签，解决 <code>display</code> 的问题，完美解决问题，再看看效果：<br><img src="http://i2.muimg.com/594295/d0dceed9b6341400.png" alt="Markdown"><br><a href="https://codepen.io/jiangxiaolin1995/pen/GmGVqW" target="_blank" rel="external">-webkit- 内核下 Demo 戳我</a><br>####法二: 绝对定位障眼法</li>
-</ul>
-<p>是的，还有第二种方法……</p>
-<p>上面我们为了让第一行居中，使用了三层嵌套标签。</p>
-<p>这次我们换一种思路，只使用两层标签，但是我们加多一行。结构如下：<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;div class="container"&gt;</div><div class="line">    &lt;h2&gt;</div><div class="line">        &lt;p&gt;我是单行标题居中&lt;/p&gt;</div><div class="line">        &lt;p class="pesudo"&gt;我是单行标题居中&lt;/p&gt;</div><div class="line">    &lt;/h2&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure></p>
-<p>这里，新添加了一行 <code>class</code> 为 <code>pesudo</code> 的 <code>p</code> 标签，标签内容与文本内容一致，但是我们限定死 <code>class=&quot;pesudo&quot;</code> 的 <code>p</code> 标签高度 <code>height</code> 与上面的 <code>p</code> 的行高 <code>line-height</code>一致，并设置 <code>overflow:hidden</code> ，那么这个 <code>p</code> 标签最多只能能展示出一行文本，接下来使用绝对定位，定位到 <code>h2</code> 的顶部，再设置 <code>text-align:center</code> 以及背景色与 <code>h2</code> 背景色一致。</p>
-<p>这样最多显示单行且样式为居中的 <code>class=&quot;pesudo&quot;</code> <code>p</code> 标签就重叠到了原本的 <code>p</code> 标签之上。表现为单行居中，多行时第一行则铺满，解决了我们的问题。多行省略与方法一相同。CSS 如下：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">h2</span>&#123;</div><div class="line">    <span class="attribute">position</span>:relative;</div><div class="line">    <span class="attribute">line-height</span>:<span class="number">30px</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-tag">p</span>&#123;</div><div class="line">    <span class="attribute">overflow </span>: hidden;</div><div class="line">    <span class="attribute">text-overflow</span>: ellipsis;</div><div class="line">    <span class="attribute">display</span>: -webkit-box;</div><div class="line">    <span class="attribute">-webkit-line-clamp</span>: <span class="number">2</span>;</div><div class="line">    <span class="attribute">-webkit-box-orient</span>: vertical;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.pesudo</span>&#123;</div><div class="line">    <span class="attribute">position</span>:absolute;</div><div class="line">    <span class="attribute">width</span>:<span class="number">100%</span>;</div><div class="line">    <span class="attribute">height</span>:<span class="number">30px</span>;</div><div class="line">    <span class="attribute">overflow</span>:hidden;</div><div class="line">    <span class="attribute">top</span>:<span class="number">0</span>;</div><div class="line">    <span class="attribute">background</span>:<span class="number">#ddd</span>;</div><div class="line">    <span class="attribute">text-align</span>:center;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p><a href="https://codepen.io/jiangxiaolin1995/pen/GmGVjW" target="_blank" rel="external">-webkit- 内核下 Demo 戳我</a></p>
-<blockquote>
-<p>灵感全来于一个<strong>github</strong>项目，不是为了让大家用生僻的<strong>CSS</strong>属性解决需求，在项目中法一完全够用，就是为了大家熟悉<strong>CSS</strong>属性。<br><a href="https://github.com/chokcoco/iCSS" target="_blank" rel="external">github项目地址</a>（感谢<strong>chococo</strong>为维护这个项目付出的努力）</p>
-</blockquote>
-]]></content>
-      
-        
-        <tags>
-            
-            <tag> CSS </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
       <title><![CDATA[层叠顺序与堆栈上下文]]></title>
       <url>/year/10/09/%E5%B1%82%E5%8F%A0%E9%A1%BA%E5%BA%8F%E4%B8%8E%E5%A0%86%E5%8F%A0%E4%B8%8A%E4%B8%8B%E6%96%87/</url>
       <content type="html"><![CDATA[<h3 id="层叠顺序（stacking-level）与堆栈上下文（stacking-context）知多少？"><a href="#层叠顺序（stacking-level）与堆栈上下文（stacking-context）知多少？" class="headerlink" title="层叠顺序（stacking level）与堆栈上下文（stacking context）知多少？"></a>层叠顺序（stacking level）与堆栈上下文（stacking context）知多少？</h3><p><code>z-index</code> 看上去其实很简单，根据 <code>z-index</code> 的高低决定层叠的优先级，实则深入进去，会发现内有乾坤。<br><a id="more"></a><br>看看下面这个，定义两个 div A 和 B，被包括在同一个父 div 标签下。HTML结构如下：<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;div class="container"&gt;</div><div class="line">    &lt;div class="inline-block"&gt;#divA display:inline-block&lt;/div&gt;</div><div class="line">    &lt;div class="float"&gt; #divB float:left&lt;/div&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure></p>
@@ -609,6 +585,53 @@
             <tag> CSS </tag>
             
             <tag> 边框 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[单行居中显示文字，多行居左显示，最多两行超过用省略号结尾]]></title>
+      <url>/year/10/09/%E9%A6%96%E5%85%88%E6%98%AF%E5%8D%95%E8%A1%8C%E5%B1%85%E4%B8%AD%EF%BC%8C%E5%A4%9A%E8%A1%8C%E5%B1%85%E5%B7%A6/</url>
+      <content type="html"><![CDATA[<p>使用纯 CSS，完成单行文本居中显示文字，多行居左显示，最多两行超过用省略号结尾，效果如下：<br>不愿看长篇大论的可以先看看效果：<a href="https://codepen.io/jiangxiaolin1995/pen/qmYzdL" target="_blank" rel="external">-webkit- 内核下 Demo 戳我</a><br><a id="more"></a><br><img src="http://i2.muimg.com/594295/d0dceed9b6341400.png" alt="多行显示"><br>接下来就一步一步来实现这个效果。</p>
+<h5 id="首先是单行居中，多行居左"><a href="#首先是单行居中，多行居左" class="headerlink" title="首先是单行居中，多行居左"></a>首先是单行居中，多行居左</h5><p>居中需要用到 <code>text-align:center</code>，居左是默认值也就是<code>text-align:left</code>。如合让两者结合起来达到单行居中，多行居左呢？这就需要多一个标签，假设一开始我们定义如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">&lt;h2&gt;单行居中，多行居左&lt;/h2&gt;</div></pre></td></tr></table></figure>
+<p>现在，我们在 <code>h2</code> 中间，嵌套多一层标签 p：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;h2&gt;&lt;p&gt;单行居中，多行居左&lt;/p&gt;&lt;/h2&gt;</div></pre></td></tr></table></figure>
+<p>我们让内层 p 居左 text-align:left，外层 h2 居中 text-align:center，并且将 p 设置为 display:inline-block ，利用 inline-block 元素可以被父级 text-align:center 居中的特性，这样就可以实现单行居中，多行居左，CSS 如下：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">p</span> &#123;</div><div class="line">    <span class="attribute">display</span>: inline-block;</div><div class="line">    <span class="attribute">text-align</span>: left;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-tag">h2</span>&#123;</div><div class="line">    <span class="attribute">text-align</span>: center;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>得到的效果如下：<br><img src="http://i2.muimg.com/594295/5519fcaeada1dc34.png" alt="Markdown"></p>
+<h5 id="超出两行省略"><a href="#超出两行省略" class="headerlink" title="超出两行省略"></a>超出两行省略</h5><p>完成了第一步，接下来要实现的是超出两行显示省略符号。<br>多行省略是有专门的新 CSS 属性可以实现的，但是有些兼容性不大好。主要用到如下几个：</p>
+<ul>
+<li><code>display: -webkit-box;</code> // 设置display，将对象作为弹性伸缩盒子模型显示</li>
+<li><code>webkit-line-clamp: 2;</code> // 限制在一个块元素显示的文本的行数</li>
+<li><code>webkit-box-orient: vertical;</code> // 规定框的子元素应该被水平或垂直排列<br>上述 3 条样式配合 <code>overflow : hidden</code> 和 <code>text-overflow: ellipsis</code> 即可实现 <code>webkit</code> 内核下的多行省略。好，我们将上述说的一共 5 条样式添加给 p 元素<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">p</span> &#123;</div><div class="line">    <span class="attribute">display</span>: inline-block;</div><div class="line">    <span class="attribute">text-align</span>: left;</div><div class="line">    <span class="attribute">overflow </span>: hidden;</div><div class="line">    <span class="attribute">text-overflow</span>: ellipsis;</div><div class="line">    <span class="attribute">display</span>: -webkit-box;</div><div class="line">    <span class="attribute">-webkit-line-clamp</span>: <span class="number">2</span>;</div><div class="line">    <span class="attribute">-webkit-box-orient</span>: vertical;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-tag">h2</span>&#123;</div><div class="line">    <span class="attribute">text-align</span>: center;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>看看效果如下：<br><img src="http://i2.muimg.com/594295/47610dc1f7901281.png" alt="Markdown"><br>（在 -webkit- 内核浏览器下）发现，虽然超出两行的是被省略了，但是第一行也变回了居左，而没有居中。</p>
+<p>看回上面的 CSS 中的 p 元素，原因在于我们第一个设置的 <code>display: inline-block</code> ，被接下来设置的 <code>display: -webkit-box</code> 给覆盖掉了，所以不再是 <code>inline-block</code> 特性的内部 p 元素占据了一整行，也就自然而然的不再居中，而变成了正常的居左展示。</p>
+<p>记得上面我们解决单行居中，多行居左时的方法吗？上面我们添加多了一层标签解决了问题，这里我们再添加多一层标签，如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;h2&gt;&lt;p&gt;&lt;em&gt;单行居中，多行居左&lt;em&gt;&lt;/p&gt;&lt;/h2&gt;</div></pre></td></tr></table></figure>
+<p>这里，我们再添加一层 <code>em</code> 标签，接下来，</p>
+<ul>
+<li>设置 <code>em</code> 为 <code>display: -webkit-box</code></li>
+<li>设置 <code>p</code> 为 <code>inline-block</code></li>
+<li>设置 <code>h2</code> 为 <code>text-align: center</code><br>嘿！通过再设置多一层标签，解决 <code>display</code> 的问题，完美解决问题，再看看效果：<br><img src="http://i2.muimg.com/594295/d0dceed9b6341400.png" alt="Markdown"><br><a href="https://codepen.io/jiangxiaolin1995/pen/GmGVqW" target="_blank" rel="external">-webkit- 内核下 Demo 戳我</a><br>####法二: 绝对定位障眼法</li>
+</ul>
+<p>是的，还有第二种方法……</p>
+<p>上面我们为了让第一行居中，使用了三层嵌套标签。</p>
+<p>这次我们换一种思路，只使用两层标签，但是我们加多一行。结构如下：<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;div class="container"&gt;</div><div class="line">    &lt;h2&gt;</div><div class="line">        &lt;p&gt;我是单行标题居中&lt;/p&gt;</div><div class="line">        &lt;p class="pesudo"&gt;我是单行标题居中&lt;/p&gt;</div><div class="line">    &lt;/h2&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure></p>
+<p>这里，新添加了一行 <code>class</code> 为 <code>pesudo</code> 的 <code>p</code> 标签，标签内容与文本内容一致，但是我们限定死 <code>class=&quot;pesudo&quot;</code> 的 <code>p</code> 标签高度 <code>height</code> 与上面的 <code>p</code> 的行高 <code>line-height</code>一致，并设置 <code>overflow:hidden</code> ，那么这个 <code>p</code> 标签最多只能能展示出一行文本，接下来使用绝对定位，定位到 <code>h2</code> 的顶部，再设置 <code>text-align:center</code> 以及背景色与 <code>h2</code> 背景色一致。</p>
+<p>这样最多显示单行且样式为居中的 <code>class=&quot;pesudo&quot;</code> <code>p</code> 标签就重叠到了原本的 <code>p</code> 标签之上。表现为单行居中，多行时第一行则铺满，解决了我们的问题。多行省略与方法一相同。CSS 如下：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">h2</span>&#123;</div><div class="line">    <span class="attribute">position</span>:relative;</div><div class="line">    <span class="attribute">line-height</span>:<span class="number">30px</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-tag">p</span>&#123;</div><div class="line">    <span class="attribute">overflow </span>: hidden;</div><div class="line">    <span class="attribute">text-overflow</span>: ellipsis;</div><div class="line">    <span class="attribute">display</span>: -webkit-box;</div><div class="line">    <span class="attribute">-webkit-line-clamp</span>: <span class="number">2</span>;</div><div class="line">    <span class="attribute">-webkit-box-orient</span>: vertical;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.pesudo</span>&#123;</div><div class="line">    <span class="attribute">position</span>:absolute;</div><div class="line">    <span class="attribute">width</span>:<span class="number">100%</span>;</div><div class="line">    <span class="attribute">height</span>:<span class="number">30px</span>;</div><div class="line">    <span class="attribute">overflow</span>:hidden;</div><div class="line">    <span class="attribute">top</span>:<span class="number">0</span>;</div><div class="line">    <span class="attribute">background</span>:<span class="number">#ddd</span>;</div><div class="line">    <span class="attribute">text-align</span>:center;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><a href="https://codepen.io/jiangxiaolin1995/pen/GmGVjW" target="_blank" rel="external">-webkit- 内核下 Demo 戳我</a></p>
+<blockquote>
+<p>灵感全来于一个<strong>github</strong>项目，不是为了让大家用生僻的<strong>CSS</strong>属性解决需求，在项目中法一完全够用，就是为了大家熟悉<strong>CSS</strong>属性。<br><a href="https://github.com/chokcoco/iCSS" target="_blank" rel="external">github项目地址</a>（感谢<strong>chococo</strong>为维护这个项目付出的努力）</p>
+</blockquote>
+]]></content>
+      
+        
+        <tags>
+            
+            <tag> CSS </tag>
             
         </tags>
         
