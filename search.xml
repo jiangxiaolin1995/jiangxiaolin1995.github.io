@@ -17,9 +17,9 @@
         
         <tags>
             
-            <tag> 边框 </tag>
-            
             <tag> ionic </tag>
+            
+            <tag> 边框 </tag>
             
         </tags>
         
@@ -233,13 +233,14 @@
 </blockquote>
 <h4 id="可选参数"><a href="#可选参数" class="headerlink" title="可选参数"></a>可选参数</h4><p>在方法的参数声明后面用问号来标明此参数为可选参数<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">function test(a: string, b?: string , c: string = 'lin') &#123;</div><div class="line">    console.log(a)</div><div class="line">    console.log(b)</div><div class="line">    console.log(c)</div><div class="line">&#125;</div><div class="line">test('x')</div></pre></td></tr></table></figure></p>
 <blockquote>
-<p>因为<code>b</code>参数是可选的，<code>c</code>参数是默认的，所以就可以传一个值<br>注意：</p>
+<p>因为<code>b</code>参数是可选的，<code>c</code>参数是默认的，所以就可以传一个值</p>
+</blockquote>
+<p><strong>注意</strong>：</p>
 <ul>
 <li>要处理<code>可选参数</code>没传值的情况，比如<code>b</code>没传值，而<code>console.log(b.length)</code>这个时候会报错。可选参数默认是<code>undefined</code>。</li>
-<li><code>可选参数</code>不能声明在<code>必选参数</code>前面的，要跟<code>默认参数</code>一样，声明在不选<code>参数后面</code><h3 id="函数新特性"><a href="#函数新特性" class="headerlink" title="函数新特性"></a>函数新特性</h3><h4 id="Rest-and-Spread操作符"><a href="#Rest-and-Spread操作符" class="headerlink" title="Rest and Spread操作符"></a>Rest and Spread操作符</h4>用来声明任意数量的方法参数<figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">func1</span>(<span class="params">...args</span>) </span>&#123;</div><div class="line">    </div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
+<li><code>可选参数</code>不能声明在<code>必选参数</code>前面的，要跟<code>默认参数</code>一样，声明在不选<code>参数后面</code></li>
 </ul>
-</blockquote>
+<h3 id="函数新特性"><a href="#函数新特性" class="headerlink" title="函数新特性"></a>函数新特性</h3><h4 id="Rest-and-Spread操作符"><a href="#Rest-and-Spread操作符" class="headerlink" title="Rest and Spread操作符"></a>Rest and Spread操作符</h4><p>用来声明任意数量的方法参数<br><figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">func1</span>(<span class="params">...args</span>) </span>&#123;</div><div class="line">    </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p><code>...args</code>即操作符，可以传任意数量的参数给<code>func1</code>函数。<br><code>...args</code>即<code>JavaScript</code>的<code>arguments</code>对象</p>
 <figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">func1</span>(<span class="params">...args</span>) </span>&#123;</div><div class="line">    args.forEach(<span class="function"><span class="keyword">function</span> (<span class="params">arg</span>) </span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(arg)</div><div class="line">    &#125;)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>以上<code>TypeScript</code>代码转化为<code>JavaScript</code>代码为<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">func1</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> args = [];</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> _i = <span class="number">0</span>; _i &lt; <span class="built_in">arguments</span>.length; _i++) &#123;</div><div class="line">        args[_i] = <span class="built_in">arguments</span>[_i];</div><div class="line">    &#125;</div><div class="line">    args.forEach(<span class="function"><span class="keyword">function</span> (<span class="params">arg</span>) </span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(arg);</div><div class="line">    &#125;);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
